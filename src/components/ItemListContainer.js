@@ -1,16 +1,9 @@
-
-
-
-const Lista= ({name}) =>{
+export default function ItemListContainer({prop}) {
     return (
-        <>
-        <li>
-          <a>{name}</a>
-        </li>
-        </>
-      );
-    }
+    <div>
+        <p>Esto es la entrega de {prop}</p>
+    </div>
 
 
-
-export default Lista;
+    )}
+  

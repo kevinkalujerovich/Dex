@@ -1,14 +1,19 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import Lista from './components/ItemListContainer';
+import ItemCount from './components/ItemCount';
+import ItemListContainer from './components/ItemListContainer';
+
+
 
 function App() {
-  return (
+  
+
+return (
     <div className="App">
      <Navbar/>
-     <Lista name="Camisetas"/>
-     <Lista name="Remeras"/>
-     <Lista name="Botines"/>
+     <ItemListContainer prop={"Componentes I"} />
+    <ItemCount initial={1} stock={10}/>
+
     </div>
   );
 }
