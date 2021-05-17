@@ -9,7 +9,7 @@ export default function ItemCount({initial,stock}) {
   };
 
 const onAdd=()=>{
-counter<stock?setError("Agrego al carrito "+JSON.stringify(counter)+" producto"):setError("Supero el stock actual que es "+JSON.stringify(stock));
+  counter<stock?setError(`Agrego al carrito ${counter}`):setError(`El stock actual es ${stock}`);
 }
 
 

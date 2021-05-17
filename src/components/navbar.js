@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {AppBar,Toolbar,Typography,Badge,IconButton } from '@material-ui/core';
-import StorefrontIcon from '@material-ui/icons/Storefront';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import CartWidget from './CartWidget';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -17,7 +17,7 @@ export default function Navbar() {
     <div >
       <AppBar position="static">
         <Toolbar>
-            <StorefrontIcon color="inherit"/>
+        <CartWidget/>
           <Typography variant="h6" className={classes.title}>
             Tienda
           </Typography>
