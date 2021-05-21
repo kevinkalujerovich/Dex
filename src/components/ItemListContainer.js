@@ -1,9 +1,8 @@
-export default function ItemListContainer({prop}) {
+import ItemList from './ItemList';
+export default function ItemListContainer() {
     return (
-    <div>
-        <p>Esto es la entrega de {prop}</p>
-    </div>
-
+   
+  <ItemList/>
 
     )}
   

@@ -6,7 +6,7 @@ export default function ItemCount({initial,stock}) {
   const [errorBis,setErrorBis]=useState("");
 
   const restarCounter = () => {
-    return counter==1 ? (
+    return counter===1 ? (
     setError(`No puede ingresar una cantidad menor a 1`),
     setErrorBis(``)
     ):(
@@ -16,7 +16,7 @@ export default function ItemCount({initial,stock}) {
   };
   
   const sumarCounter = () => {
-    return counter==10?(
+    return counter===stock?(
       setError(`No puede sumar mas unidades llego al limite de stock`),
       setErrorBis(``)
     ):(
