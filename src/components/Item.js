@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 export default function Item({model,year,make}) {
   const classes = useStyles();
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} >
       <CardActionArea>
         <CardMedia
   component="img"
@@ -30,6 +30,9 @@ export default function Item({model,year,make}) {
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {model}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {make}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {year}
