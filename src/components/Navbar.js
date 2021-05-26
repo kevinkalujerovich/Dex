@@ -15,7 +15,7 @@ export default function Navbar() {
   
   return (
     <div >
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
         <CartWidget/>
           <Typography variant="h6" className={classes.title}>
