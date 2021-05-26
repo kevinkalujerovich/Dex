@@ -4,23 +4,23 @@ import {Container,Grid} from '@material-ui/core';
 
 
  export default function ItemDetailContainer(){
-    
+ 
 const [array, setArray] = useState([]);
 
+const getData = async () => {
+  const arr = [
+    {categoria: "Botines",nombre:"Botines Adidas Engage", marca: "Adidas",precio:2000,img:"img/BotinesAdidasEngage.jpg",description:
+    "Los botines Adidas Engage te brindan un mejor control y amortiguación en tus pies. Usalos en canchas de césped natural. Dale a tu equipo esos pases precisos que se necesitan para alcanzar la gloria."} ];
+
+  setTimeout(()=>{
+  setArray(arr);
+  }, 3000);
+
+};
 
   useEffect(() => {
-    const arr = [
-        {categoria: "Botines",nombre:"Botines Adidas Engage", marca: "Adidas",precio:2000,img:"img/BotinesAdidasEngage.jpg",description:
-        "Los botines Adidas Engage te brindan un mejor control y amortiguación en tus pies. Usalos en canchas de césped natural. Dale a tu equipo esos pases precisos que se necesitan para alcanzar la gloria."} ];
-    const promise=new Promise((resolve, reject) => {
-      setTimeout(()=>{
-        resolve(arr); 
-      }, 3000);
-    });
-    promise.then((value)=>{
-        setArray(value);
-      }
-    );
+    
+   getData();
     
   }, []);
 
