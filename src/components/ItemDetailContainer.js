@@ -1,30 +1,29 @@
 import  { useState ,useEffect} from 'react';
 import ItemDetail from './ItemDetail';
-import {Container,Grid} from '@material-ui/core';
+import {Container,Grid,CircularProgress} from '@material-ui/core';
+import data from '../data.json';
+import { useParams } from "react-router-dom";
+
 
 
  export default function ItemDetailContainer(){
  
 const [array, setArray] = useState([]);
+const { catId } = useParams();
 
-const getData = async () => {
-  const arr = [
-    {categoria: "Botines",nombre:"Botines Adidas Engage", marca: "Adidas",precio:2000,img:"img/BotinesAdidasEngage.jpg",description:
-    "Los botines Adidas Engage te brindan un mejor control y amortiguación en tus pies. Usalos en canchas de césped natural. Dale a tu equipo esos pases precisos que se necesitan para alcanzar la gloria."} ];
+useEffect(() => {
+  const getItems = new Promise(resolve => {
+    setTimeout(() => {
+      resolve(data);
+    }, 2000);
+  });
 
-  setTimeout(()=>{
-  setArray(arr);
-  }, 3000);
-
-};
-
-  useEffect(() => {
-    
-   getData();
-    
-  }, []);
-
-
+  catId?getItems.then(res => {
+          setArray(res.filter(i => i.category === catId));
+        }): getItems.then(res => {
+          setArray(res);
+        });
+}, [catId]);
   return (
 
  <Container><Grid container spacing={2}>
@@ -35,5 +34,5 @@ const getData = async () => {
     <ItemDetail  description={item.description} nombre={item.nombre} img={item.img} precio={item.precio}></ItemDetail>   
     </Grid>
 
-   )}):<h1>Loading</h1>}</Grid></Container>);
+   )}):<CircularProgress />}</Grid></Container>);
  }

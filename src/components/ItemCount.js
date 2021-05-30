@@ -1,4 +1,7 @@
 import {  useState } from "react";
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
+import {Box} from '@material-ui/core';
 
 export default function ItemCount({initial,stock}) {
   const [counter, setCounter] = useState(initial);
@@ -33,14 +36,15 @@ setError(``);
 
 
   return (
-      <div>
-        <h1>CANTIDAD: {counter}</h1>
-        <button onClick={() => restarCounter()}>Restar uno</button>
-        <button onClick={() => sumarCounter()}>Sumar uno</button>
-        <h2>{error}</h2>
-        <br/><br/><br/>
-        <button onClick={onAdd}>Agregar al carrito</button>
-        <h2>{errorBis}</h2>
-      </div>
+    <Box
+  display="flex"
+  justifyContent="center"
+    >
+    <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
+  <Button onClick={() => restarCounter()}>-</Button>
+  <Button>{counter}</Button>
+  <Button onClick={() => sumarCounter()}>+</Button>
+</ButtonGroup>
+</Box>
   );
 }

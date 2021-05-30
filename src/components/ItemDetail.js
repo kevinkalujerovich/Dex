@@ -8,6 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Box} from '@material-ui/core';
+import ItemCount from './ItemCount';
 
 const useStyles = makeStyles({
   root: {
@@ -43,9 +44,10 @@ export default function ItemDetail({img,description,nombre,precio}) {
           </Box>
         </CardContent>
       </CardActionArea>
+    <ItemCount initial={1} stock={10}/>
       <CardActions>
         <Button size="small" color="primary">
-          Comprar
+          Agregar al carrito
         </Button>
         <Button size="small" color="primary">
           Ver mas
