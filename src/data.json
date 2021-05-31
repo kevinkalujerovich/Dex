@@ -1,6 +1,6 @@
 [
     {
-      "_id": "1",
+      "id": "1",
       "name": "Botines Adidas Engage",
       "category":"Botines",
       "marca":"Adidas",
@@ -18,7 +18,16 @@
         "description":"La camiseta te brindan un mejor control y amortiguación en tus pies."
       }, 
       {
-        "_id": "3",
+        "id": "3",
+        "name": "Remera Under Armour Seamless",
+        "category":"Remeras",
+        "marca":"Under Armour",
+        "precio":2000,
+        "img":"img/Remera-Under-Armour-Seamless.jpg",
+        "description":"Los remera Engage te brindan un mejor control y amortiguación en tus pies."
+      }, 
+      {
+        "id": "4",
         "name": "Remera Under Armour Seamless",
         "category":"Remeras",
         "marca":"Under Armour",

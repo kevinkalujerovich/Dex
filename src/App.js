@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import ItemDetailContainer from './components/ItemDetailContainer';
+import ItemListContainer from './components/ItemListContainer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,7 +10,6 @@ import {
 
 function App() {
   
-    
 
 return (
     <div className="App">
@@ -19,10 +18,15 @@ return (
         <Switch>
         <Route exact path="/">
         <br></br><br></br><br></br><br></br>
+        <ItemListContainer/>
           </Route>
-          <Route path="/category/:id">
+          <Route exact path="/category/:catId">
           <br></br><br></br><br></br><br></br>
-      <ItemDetailContainer/>
+          <ItemListContainer/>
+          </Route>
+          <Route exact path="/item/:Id">
+          <br></br><br></br><br></br><br></br>
+
           </Route>
         </Switch>
     </Router>

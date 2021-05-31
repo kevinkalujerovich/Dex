@@ -5,9 +5,7 @@ import {Box} from '@material-ui/core';
 
 export default function ItemCount({initial,stock}) {
   const [counter, setCounter] = useState(initial);
-  const [error, setError] = useState("");
-  const [errorBis,setErrorBis]=useState("");
-
+  
   const restarCounter = () => {
     return counter===1 ? (
     setError(`No puede ingresar una cantidad menor a 1`),
