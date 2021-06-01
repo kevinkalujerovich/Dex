@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,7 +27,7 @@ return (
           </Route>
           <Route exact path="/item/:Id">
           <br></br><br></br><br></br><br></br>
-
+          <ItemDetailContainer/>
           </Route>
         </Switch>
     </Router>

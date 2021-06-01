@@ -9,7 +9,7 @@
       "description":"Los botines Adidas Engage te brindan un mejor control y amortiguación en tus pies."
     },
     {
-        "_id": "2",
+        "id": "2",
         "name": "Camiseta Adidas River Plate Entrenamiento 20/21",
         "category":"Camisetas",
         "marca":"Adidas",

@@ -1,6 +1,6 @@
 import  { useState ,useEffect} from 'react';
 import ItemDetail from './ItemDetail';
-import {Container,Grid,CircularProgress} from '@material-ui/core';
+import {Container,CircularProgress,Box} from '@material-ui/core';
 import data from '../data.json';
 import { useParams } from "react-router-dom";
 
@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
  export default function ItemDetailContainer(){
  
 const [array, setArray] = useState([]);
-const { catId } = useParams();
+const { Id } = useParams();
 
 useEffect(() => {
   const getItems = new Promise(resolve => {
@@ -18,21 +18,18 @@ useEffect(() => {
     }, 2000);
   });
 
-  catId?getItems.then(res => {
-          setArray(res.filter(i => i.category === catId));
+  Id?getItems.then(res => {
+          setArray(res.filter(i => i.id === Id));
         }): getItems.then(res => {
           setArray(res);
         });
-}, [catId]);
+}, [Id]);
   return (
-
- <Container><Grid container spacing={2}>
+ <Container>
    {array.length > 0?
- array.map((item,index) =>{
+ array.map((item) =>{
    return (
-     <Grid item xs={12} sm={4} md={3} lg={3} key={index}>
-    <ItemDetail  description={item.description} nombre={item.nombre} img={item.img} precio={item.precio}></ItemDetail>   
-    </Grid>
-
-   )}):<CircularProgress />}</Grid></Container>);
+    <ItemDetail key={item.id} description={item.description} name={item.name} img={item.img} precio={item.precio}></ItemDetail>
+   )}):<Box mx="auto"><CircularProgress /></Box>}
+  </Container>);
  }

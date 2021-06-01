@@ -12,7 +12,7 @@ return (
   array.map((item,index) =>{
     return (
       <Grid item xs={12} sm={4} md={3} lg={3} key={index}>
-     <Item   name={item.name} img={item.img} precio={item.precio} />   
+     <Item   name={item.name} img={item.img} precio={item.precio} id={item.id} />   
      </Grid>
  
     )}):<Box mx="auto"><CircularProgress /></Box>
