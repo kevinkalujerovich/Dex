@@ -18,11 +18,9 @@ useEffect(() => {
     }, 2000);
   });
 
-  Id?getItems.then(res => {
+  getItems.then(res => {
           setArray(res.filter(i => i.id === Id));
-        }): getItems.then(res => {
-          setArray(res);
-        });
+        })
 }, [Id]);
   return (
  <Container>
@@ -30,6 +28,6 @@ useEffect(() => {
  array.map((item) =>{
    return (
     <ItemDetail key={item.id} description={item.description} name={item.name} img={item.img} precio={item.precio}></ItemDetail>
-   )}):<Box mx="auto"><CircularProgress /></Box>}
+   )}):<Box ><CircularProgress mx="auto"/></Box>}
   </Container>);
  }
