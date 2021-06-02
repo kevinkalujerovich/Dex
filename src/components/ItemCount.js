@@ -7,28 +7,17 @@ export default function ItemCount({initial,stock}) {
   const [counter, setCounter] = useState(initial);
   
   const restarCounter = () => {
-    return counter===1 ? (
-    setError(`No puede ingresar una cantidad menor a 1`),
-    setErrorBis(``)
-    ):(
-    setCounter(counter-1),
-    setErrorBis(``)
-    );
+    if(counter>1){
+      setCounter(counter-1)
+    }
   };
-  
   const sumarCounter = () => {
-    return counter===stock?(
-      setError(`No puede sumar mas unidades llego al limite de stock`),
-      setErrorBis(``)
-    ):(
-      setCounter(counter+1),
-      setErrorBis(``)
-    );
+    if(counter<stock){
+      setCounter(counter+1)
+    }
   };
 
 const onAdd=()=>{
-setErrorBis(`Agrego al carrito ${counter} productos`);
-setError(``);
 }
 
 

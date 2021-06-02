@@ -1,21 +1,38 @@
 import React from 'react';
-import {Typography,Container} from '@material-ui/core';
-
+import {Typography,Grid,Box,Button} from '@material-ui/core';
+import ItemCount from './ItemCount'
 
 
 export default function ItemDetail({img,description,name,precio}) {
   return (
-    <Container maxWidth="sm">
-      <img src={img}  alt="imagen de producto"/>
-      <Typography variant="h2" component="h2" gutterBottom>
+    <Box mt={6}>
+    <Grid container spacing={3} >
+        <Grid item xs={12} sm={6} >
+      <img src={img} width="200px" heigth="200" alt="imagen de producto"/>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Typography variant="h3"  gutterBottom>
         {name}
       </Typography>
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h4" gutterBottom>
         ${precio}
       </Typography>
-      <Typography variant="p" gutterBottom>
+      <Typography variant="subtitle1" gutterBottom>
         {description}
       </Typography>
-  </Container>
+      <Box mt={6}>
+      <Grid container spacing={2} >
+        <Grid item xs>
+      <ItemCount stock={10} initial={1}/>
+        </Grid>
+        <Grid item xs>
+        <Button variant="contained" color="primary" >Agregar al carrito</Button>
+        </Grid>
+        </Grid>
+        </Box>
+      </Grid>
+     
+        </Grid>
+        </Box>
   );
 }

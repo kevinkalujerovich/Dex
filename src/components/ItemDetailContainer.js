@@ -1,6 +1,6 @@
 import  { useState ,useEffect} from 'react';
 import ItemDetail from './ItemDetail';
-import {Container,CircularProgress,Box} from '@material-ui/core';
+import {Container,CircularProgress,Box,Grid} from '@material-ui/core';
 import data from '../data.json';
 import { useParams } from "react-router-dom";
 
@@ -23,11 +23,13 @@ useEffect(() => {
         })
 }, [Id]);
   return (
- <Container>
+ <Container><Grid container spacing={2}>
    {array.length > 0?
  array.map((item) =>{
-   return (
+   return (  
     <ItemDetail key={item.id} description={item.description} name={item.name} img={item.img} precio={item.precio}></ItemDetail>
-   )}):<Box ><CircularProgress mx="auto"/></Box>}
-  </Container>);
+    )}): 
+   <Box mx="auto"><CircularProgress /></Box>
+ }
+ </Grid> </Container>);
  }

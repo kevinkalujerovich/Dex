@@ -33,7 +33,7 @@ export default function Item({name,precio,img,id})  {
         activeStyle={{
         color: "white",
         textDecoration: 'none' }}>
-        <Button size="small">Ver mas</Button>
+        <Button size="small" >Ver mas</Button>
         </NavLink>
       </CardActions>
     </Card>
