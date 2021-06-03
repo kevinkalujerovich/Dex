@@ -5,7 +5,7 @@
       "category":"Botines",
       "marca":"Adidas",
       "precio":2000,
-      "img":"img/BotinesAdidasEngage.jpg",
+      "img":"/img/BotinesAdidasEngage.jpg",
       "description":"Los botines Adidas Engage te brindan un mejor control y amortiguación en tus pies."
     },
     {
@@ -14,7 +14,7 @@
         "category":"Camisetas",
         "marca":"Adidas",
         "precio":2000,
-        "img":"img/camiseta-adidas-river-plate-entrenamiento-20-21.jpg",
+        "img":"/img/camiseta-adidas-river-plate-entrenamiento-20-21.jpg",
         "description":"La camiseta te brindan un mejor control y amortiguación en tus pies."
       }, 
       {
@@ -23,7 +23,7 @@
         "category":"Remeras",
         "marca":"Under Armour",
         "precio":2000,
-        "img":"img/Remera-Under-Armour-Seamless.jpg",
+        "img":"/img/Remera-Under-Armour-Seamless.jpg",
         "description":"Los remera Engage te brindan un mejor control y amortiguación en tus pies."
       }, 
       {
@@ -32,7 +32,7 @@
         "category":"Remeras",
         "marca":"Under Armour",
         "precio":2000,
-        "img":"img/Remera-Under-Armour-Seamless.jpg",
+        "img":"/img/Remera-Under-Armour-Seamless.jpg",
         "description":"Los remera Engage te brindan un mejor control y amortiguación en tus pies."
       },
       {
@@ -41,7 +41,7 @@
           "category":"Camisetas",
           "marca":"Adidas",
           "precio":2000,
-          "img":"img/camiseta-adidas-river-plate-entrenamiento-20-21.jpg",
+          "img":"/img/camiseta-adidas-river-plate-entrenamiento-20-21.jpg",
           "description":"La camiseta te brindan un mejor control y amortiguación en tus pies."
         },
         {
@@ -50,7 +50,7 @@
           "category":"Botines",
           "marca":"Adidas",
           "precio":2000,
-          "img":"img/BotinesAdidasEngage.jpg",
+          "img":"/img/BotinesAdidasEngage.jpg",
           "description":"Los botines Adidas Engage te brindan un mejor control y amortiguación en tus pies."
         }
 ]
