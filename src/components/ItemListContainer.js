@@ -8,7 +8,10 @@ export default function ItemListContainer() {
   const [items, setItems] = useState([]);
   const [loader, setLoader] = useState(false);
   const { catId } = useParams();
- 
+  
+
+
+
   useEffect(() => {
     const getItems = new Promise(resolve => {
       setLoader(true);

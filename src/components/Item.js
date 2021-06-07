@@ -10,7 +10,8 @@ import{NavLink} from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
-    width: 250,
+    width: 200,
+    heigth:600,
   },
 });
 
@@ -20,8 +21,8 @@ export default function Item({name,precio,img,id})  {
   return (
     <Card className={classes.root}>
       <CardContent>
-        <img src={img}  width="200" height="200" alt="imagen de producto"/>
-        <Typography  component="h6">
+        <img src={img}  width="150" height="150" alt="imagen de producto"/>
+        <Typography  variant="body2" gutterBottom>
           {name}
         </Typography>
         <Typography color="textSecondary">

@@ -5,11 +5,14 @@ import ItemCount from './ItemCount';
 
 export default function ItemDetail({img,description,name,precio}) {
   return (
-    <Grid container mt={6} spacing={3} >
+    <Grid container spacing={3} >
         <Grid item xs={12} sm={6} >
+          <Box  mt={6}>
       <img src={img} alt="imagen de producto"/>
+      </Box>
         </Grid>
         <Grid item xs={12} sm={6}>
+        <Box  mt={6}>
           <Typography variant="h3"  gutterBottom>
         {name}
       </Typography>
@@ -21,7 +24,7 @@ export default function ItemDetail({img,description,name,precio}) {
       </Typography>
       <Box mt={6}>
       <ItemCount stock={10} initial={1}/>
-      
+        </Box>
         </Box>
       </Grid>
         </Grid>

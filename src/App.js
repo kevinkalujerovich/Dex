@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import { CartProvider } from "./contexts/CartContext";
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,6 +14,7 @@ function App() {
   
 
 return (
+  <CartProvider>
     <div className="App">
     <Router>
    <Navbar/>
@@ -32,6 +34,7 @@ return (
         </Switch>
     </Router>
     </div>
+    </CartProvider>
   );
 }
 

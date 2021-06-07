@@ -11,7 +11,7 @@ return (
     {load===false?
   array.map((item,index) =>{
     return (
-      <Grid item xs={12} sm={4} md={3} lg={3} key={index}>
+      <Grid item xs={12} sm={2} md={2} lg={2} key={index}>
      <Item   name={item.name} img={item.img} precio={item.precio} id={item.id} />   
      </Grid>
  
