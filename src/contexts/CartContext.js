@@ -8,7 +8,7 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState({ productos: [] });
 
   const addItem = (item) => {
-    setCart({ ...cart, productos: [...cart.productos, item] });
+    setCart({ productos: [...cart.productos, item] });
   };
 
   const clear = () => {

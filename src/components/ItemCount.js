@@ -2,7 +2,6 @@ import { useState } from "react";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import { Box, Grid } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
 
 export default function ItemCount({ initial, stock, funcion }) {
   const [counter, setCounter] = useState(initial);
@@ -35,24 +34,13 @@ export default function ItemCount({ initial, stock, funcion }) {
       </Grid>
       <Grid item xs>
         <>
-          {show === true ? (
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={funcion({ counter })}
-            >
-              Agregar al carrito
-            </Button>
-          ) : (
-            <NavLink
-              to="/cart"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              <Button variant="contained" color="primary">
-                Terminar mi compra{" "}
-              </Button>
-            </NavLink>
-          )}
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => funcion(counter)}
+          >
+            Agregar al carrito
+          </Button>
         </>
       </Grid>
     </Grid>

@@ -1,16 +1,17 @@
 import React from "react";
-import { Typography, Grid, Box } from "@material-ui/core";
+import { Typography, Grid, Box, Button } from "@material-ui/core";
 import ItemCount from "./ItemCount";
 import { useCart } from "../contexts/CartContext";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function ItemDetail({ img, description, name, precio, array }) {
-  const [show, setShow] = useState(true);
   const cart = useCart();
-
+  const [cant, setCant] = useState(0);
   const onAdd = (value) => {
-    setShow(false);
-    cart.addItem({ item: { array }, quantity: { value } });
+    setCant(1);
+    cart.addItem({ item: { array }, qy: { value } });
+    console.log(cart);
   };
 
   return (
@@ -32,7 +33,18 @@ export default function ItemDetail({ img, description, name, precio, array }) {
             {description}
           </Typography>
           <Box mt={6}>
-            <ItemCount stock={10} initial={1} funcion={onAdd} />
+            {cant > 0 ? (
+              <NavLink
+                to="/cart"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                <Button variant="contained" color="primary">
+                  Terminar mi compra{" "}
+                </Button>
+              </NavLink>
+            ) : (
+              <ItemCount stock={10} initial={1} funcion={onAdd} />
+            )}
           </Box>
         </Box>
       </Grid>
