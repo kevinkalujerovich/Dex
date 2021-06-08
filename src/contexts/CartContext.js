@@ -10,9 +10,9 @@ export const CartProvider = ({ children }) => {
   const addItem = (item) => {
     setCart({ productos: [...cart.productos, item] });
   };
-
+  console.log(cart.productos[0].item.id);
   const clear = () => {
-    setCart({});
+    setCart({ productos: [] });
   };
 
   return (

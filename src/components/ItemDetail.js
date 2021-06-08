@@ -7,13 +7,14 @@ import { NavLink } from "react-router-dom";
 
 export default function ItemDetail({ img, description, name, precio, array }) {
   const cart = useCart();
-  const [cant, setCant] = useState(0);
+  const [cant, setCant] = useState(false);
   const onAdd = (value) => {
-    setCant(1);
-    cart.addItem({ item: { array }, qy: { value } });
-    console.log(cart);
+    setCant(true);
+    cart.addItem({ item: array, qy: value });
   };
-
+  const prueba = () => {
+    cart.clear();
+  };
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={6}>
@@ -23,6 +24,7 @@ export default function ItemDetail({ img, description, name, precio, array }) {
       </Grid>
       <Grid item xs={12} sm={6}>
         <Box mt={6}>
+          <Button onClick={prueba}>asdasdasd</Button>
           <Typography variant="h3" gutterBottom>
             {name}
           </Typography>
@@ -33,13 +35,13 @@ export default function ItemDetail({ img, description, name, precio, array }) {
             {description}
           </Typography>
           <Box mt={6}>
-            {cant > 0 ? (
+            {cant ? (
               <NavLink
                 to="/cart"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 <Button variant="contained" color="primary">
-                  Terminar mi compra{" "}
+                  Terminar mi compra
                 </Button>
               </NavLink>
             ) : (

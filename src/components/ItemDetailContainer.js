@@ -29,7 +29,7 @@ export default function ItemDetailContainer() {
                 key={item.id}
                 description={item.description}
                 name={item.name}
-                array={array}
+                array={array[0]}
                 img={item.img}
                 precio={item.precio}
               ></ItemDetail>
