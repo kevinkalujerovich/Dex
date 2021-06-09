@@ -3,16 +3,10 @@ import data from "../data.json";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 
-import { useCart } from "../contexts/CartContext";
-
 export default function ItemListContainer() {
   const [items, setItems] = useState([]);
   const [loader, setLoader] = useState(false);
   const { catId } = useParams();
-
-  const cart = useCart();
-
-  console.log(cart);
 
   useEffect(() => {
     const getItems = new Promise((resolve) => {
@@ -29,7 +23,6 @@ export default function ItemListContainer() {
         })
       : getItems.then((res) => {
           setItems(res);
-
           setLoader(false);
         });
   }, [catId]);

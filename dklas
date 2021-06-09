@@ -1,0 +1,181 @@
+[33mcommit de33a4d90db758ab1d100a2c14e9cb6a4b127b73[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Tue Jun 8 04:27:51 2021 -0300
+
+    04:27
+
+[33mcommit 0251b261457695c43eb3f432115f82626064ac9d[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Mon Jun 7 22:37:46 2021 -0300
+
+    condicional y context
+
+[33mcommit 645f7288304d81526fa6e351dcba26b3534713cd[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Mon Jun 7 21:56:03 2021 -0300
+
+    btn switch
+
+[33mcommit cd787220189bd8ecaf83fa0ea24cfb6ead17dfd1[m
+Merge: c0d65ff 7b93438
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Mon Jun 7 02:22:25 2021 -0300
+
+    context
+
+[33mcommit c0d65ff03b84deba61660c20a2e6ece5bc0a3c68[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Mon Jun 7 02:19:24 2021 -0300
+
+    context
+
+[33mcommit 7b9343806eb16a6b0312348fbe8ccdf03667e7b3[m
+Author: Kevin <kevinkalujerovich@gmail.com>
+Date:   Mon Jun 7 02:18:14 2021 -0300
+
+    Update README.md
+
+[33mcommit 57316513efb6adda4cf4044be914bb23245b8ba9[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Fri Jun 4 01:57:42 2021 -0300
+
+    desafio count
+
+[33mcommit 963876fd44b424414883291f2eab8f64db607703[m
+Merge: 105396b 2ca2dd9
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Thu Jun 3 03:39:47 2021 -0300
+
+    Merge branch 'main' of https://github.com/kevinkalujerovich/tiendaConReact into main
+
+[33mcommit 105396b3011ebb37a1ea6a1833aea8efa721856e[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Thu Jun 3 03:34:59 2021 -0300
+
+    Primer Entrega
+
+[33mcommit 2ca2dd966138d5687c17fa357476bd06549bd639[m
+Author: Kevin <kevinkalujerovich@gmail.com>
+Date:   Thu Jun 3 03:33:53 2021 -0300
+
+    Update README.md
+
+[33mcommit fc7dd5ac23d1309fbe51d1f0362eda01b4e8a7bd[m
+Author: Kevin <kevinkalujerovich@gmail.com>
+Date:   Thu Jun 3 03:29:36 2021 -0300
+
+    Delete readme.md
+
+[33mcommit 6bf4f834bca81631eacfa96bef8fec99e83bc82b[m
+Author: Kevin <kevinkalujerovich@gmail.com>
+Date:   Thu Jun 3 03:29:12 2021 -0300
+
+    Create readme.md
+
+[33mcommit 4fa0f46c080eb103f22d32412e8bbd4c2231380c[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Wed Jun 2 14:58:33 2021 -0300
+
+    arreglar estilos
+
+[33mcommit 992aa2d844b9e7118d9d56bed41221bd35858b3a[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Tue Jun 1 23:42:26 2021 -0300
+
+    primera entrega
+
+[33mcommit 05f5572d4398af3db8644bd471ffd9c6ef6a5150[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Tue Jun 1 20:54:14 2021 -0300
+
+    primera entrega
+
+[33mcommit 68355cf77c447f1cb79a3970f2f3f3a92740e373[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Mon May 31 02:45:05 2021 -0300
+
+    asd
+
+[33mcommit 4a0ccb5eb1a23d890cad43ab57009d523d735e83[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Sun May 30 17:39:24 2021 -0300
+
+    asd
+
+[33mcommit 32cf8f020c19601cf1f93f3fe86012432f18c11e[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Wed May 26 18:13:28 2021 -0300
+
+    img
+
+[33mcommit 6120787259e99a88b903627084717bbe215b6ffb[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Wed May 26 03:02:40 2021 -0300
+
+    async add
+
+[33mcommit 4373d11b7012df24d6e6d849c4d10b3d004ffb1b[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Tue May 25 21:17:22 2021 -0300
+
+    Desafio ItemDetail
+
+[33mcommit 6649b5aa6c3ba92085ea4306f3dbb2ceb5b3aba4[m
+Author: Kevin <kevinkalujerovich@gmail.com>
+Date:   Tue May 25 15:45:40 2021 -0300
+
+    Rename navbar.js to Navbar.js
+
+[33mcommit cd56edfdb19166d38cdf160e513a99d8df9be4ed[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Sat May 22 18:37:39 2021 -0300
+
+    entrega
+
+[33mcommit fac01da8c3c2ca9edc9c0a0ea8587bd836044e0a[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Fri May 21 14:45:58 2021 -0300
+
+    clase map
+
+[33mcommit 83226ced5d14176d310d8f6a15ff1e18ba715a65[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Tue May 18 02:22:46 2021 -0300
+
+    Componentes II
+
+[33mcommit 16975b401ae7fb7c18863a6b0f22707b9fb59db3[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Mon May 17 20:39:26 2021 -0300
+
+    coder
+
+[33mcommit eb90cd11fec71e283d6bbd04b21eeed4a000d69d[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Sat May 15 02:50:39 2021 -0300
+
+    Componentes II
+
+[33mcommit f8c0ba3ac3bfe1ba808e7556f1c0aea29edd720c[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Fri May 14 00:13:14 2021 -0300
+
+    Componentes I
+
+[33mcommit 2da21be68005cfc5a4aa401a226fd558a1e81a61[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Tue May 11 23:43:44 2021 -0300
+
+    segunda entrega
+
+[33mcommit 93a8efa03c500a7dacc26f16daa8c6796fa17ba8[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Sun May 9 01:37:05 2021 -0300
+
+    segunda entrega
+
+[33mcommit fd7cfe20c554dd833f0f22559ff3489178f2f06d[m
+Author: kevin kalujerovich <kevinkalujerovich@gmail.com>
+Date:   Thu May 6 21:29:41 2021 -0300
+
+    Initialize project using Create React App
