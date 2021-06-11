@@ -55,7 +55,7 @@ export default function Cart() {
                       <Button
                         variant="contained"
                         color="secondary"
-                        onClick={() => removeItemCart({x.item.id})}
+                        onClick={() => removeItemCart(x.item.id)}
                       >
                         Remover item
                       </Button>
