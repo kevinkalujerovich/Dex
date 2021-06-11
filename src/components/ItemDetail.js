@@ -12,14 +12,6 @@ export default function ItemDetail({ img, description, name, precio, array }) {
     setCant(true);
     cart.addItem({ item: array, qy: value });
   };
-  const prueba = () => {
-    cart.clear();
-  };
-
-  const pruebaDos = (parametro) => {
-    cart.removeItem(parametro);
-    console.log(parametro);
-  };
 
   return (
     <Grid container spacing={3}>
@@ -30,18 +22,6 @@ export default function ItemDetail({ img, description, name, precio, array }) {
       </Grid>
       <Grid item xs={12} sm={6}>
         <Box mt={6}>
-          <>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={() => pruebaDos("3")}
-            >
-              Remover item
-            </Button>
-            <Button variant="contained" color="secondary" onClick={prueba}>
-              Borrar productos
-            </Button>
-          </>
           <Typography variant="h3" gutterBottom>
             {name}
           </Typography>

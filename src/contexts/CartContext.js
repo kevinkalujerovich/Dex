@@ -14,10 +14,6 @@ export const CartProvider = ({ children }) => {
     setCart({ productos: [...cart.productos, item] });
   };
 
-  if (cart.productos.length > 0) {
-    console.log(cart.productos);
-  }
-
   const clear = () => {
     setCart({ productos: [] });
   };
@@ -27,7 +23,7 @@ export const CartProvider = ({ children }) => {
       productos: [cart.productos.filter((x) => x.item.id !== itemId)],
     });
   };
-
+  console.log(cart.productos);
   return (
     <CartContext.Provider value={{ cart, addItem, clear, removeItem }}>
       {children}
