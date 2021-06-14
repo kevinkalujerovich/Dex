@@ -1,31 +1,42 @@
 import React, { useState, useEffect } from "react";
-import data from "../data.json";
 import ItemList from "./ItemList";
+import { CircularProgress, Grid } from "@material-ui/core";
 import { useParams } from "react-router-dom";
+import { getFirestore } from "../firebase/firebase";
 
 export default function ItemListContainer() {
+  const [loading, setLoading] = useState(false);
   const [items, setItems] = useState([]);
-  const [loader, setLoader] = useState(false);
   const { catId } = useParams();
 
   useEffect(() => {
-    const getItems = new Promise((resolve) => {
-      setLoader(true);
-      setTimeout(() => {
-        resolve(data);
-      }, 2000);
-    });
-
-    catId
-      ? getItems.then((res) => {
-          setItems(res.filter((i) => i.category === catId));
-          setLoader(false);
-        })
-      : getItems.then((res) => {
-          setItems(res);
-          setLoader(false);
-        });
+    if (catId != null) {
+      const db = getFirestore();
+      const itemsCollection = db.collection("productos");
+      const highPrice = itemsCollection.where("category", "==", catId);
+      highPrice.get().then((snapshot) => {
+        setItems(snapshot.docs.map((doc) => doc.data()));
+        setLoading(true);
+      });
+    } else {
+      const db = getFirestore();
+      const itemsCollection = db.collection("productos");
+      itemsCollection.get().then((snapshot) => {
+        setItems(snapshot.docs.map((doc) => doc.data()));
+        setLoading(true);
+      });
+    }
   }, [catId]);
 
-  return <ItemList array={items} load={loader} />;
+  return (
+    <>
+      {loading ? (
+        <ItemList array={items} />
+      ) : (
+        <Grid container justify="center">
+          <CircularProgress />
+        </Grid>
+      )}
+    </>
+  );
 }

@@ -22,7 +22,9 @@ export default function Cart() {
             <Grid item xs={12} sm={6}>
               <h2 style={{ display: "inline" }}>Mi Carrito </h2>
               <p style={{ display: "inline", fontSize: "12px" }}>
-                {cart.cart.productos.length} Productos
+                {cart.cart.productos.reduce((total, n) => total + n.qy, 0) +
+                  " "}
+                Productos
               </p>
               <p style={{ fontSize: "12px" }}>
                 <NavLink to="/" style={{ color: "blue" }}>
@@ -53,11 +55,11 @@ export default function Cart() {
                       </p>
                       <p style={{ fontSize: "15px" }}>Item No.:{x.item.id}</p>
                       <Button
-                        variant="contained"
+                        size="small"
                         color="secondary"
-                        onClick={() => removeItemCart(x.item.id)}
+                        onClick={() => clearCart()}
                       >
-                        Remover item
+                        Borrar productos
                       </Button>
                     </Grid>
                     <Grid item xs={12} sm={2}>
@@ -80,7 +82,12 @@ export default function Cart() {
                       </p>
                     </Grid>
                     <Grid item xs={12} sm={1}>
-                      <DeleteIcon />
+                      <Button
+                        size="small"
+                        onClick={() => removeItemCart(x.item.id)}
+                      >
+                        <DeleteIcon />
+                      </Button>
                     </Grid>
                   </Grid>
                 );
@@ -96,11 +103,7 @@ export default function Cart() {
               </div>
             </Grid>
           </Grid>
-          <>
-            <Button variant="contained" color="secondary" onClick={clearCart}>
-              Borrar productos
-            </Button>
-          </>
+          <></>
         </Container>
       ) : (
         <Container>
