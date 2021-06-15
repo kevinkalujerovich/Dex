@@ -10,22 +10,23 @@ export default function ItemListContainer() {
   const { catId } = useParams();
 
   useEffect(() => {
-    if (catId != null) {
-      const db = getFirestore();
-      const itemsCollection = db.collection("productos");
-      const highPrice = itemsCollection.where("category", "==", catId);
-      highPrice.get().then((snapshot) => {
-        setItems(snapshot.docs.map((doc) => doc.data()));
-        setLoading(true);
-      });
-    } else {
-      const db = getFirestore();
-      const itemsCollection = db.collection("productos");
-      itemsCollection.get().then((snapshot) => {
-        setItems(snapshot.docs.map((doc) => doc.data()));
-        setLoading(true);
-      });
-    }
+    const db = getFirestore();
+    const itemsCollection = db.collection("productos");
+    catId
+      ? itemsCollection
+          .where("category", "==", catId)
+          .get()
+          .then((snapshot) => {
+            setItems(snapshot.docs.map((doc) => doc.data()));
+            setLoading(true);
+          })
+      : itemsCollection
+          .where("new", "==", true)
+          .get()
+          .then((snapshot) => {
+            setItems(snapshot.docs.map((doc) => doc.data()));
+            setLoading(true);
+          });
   }, [catId]);
 
   return (

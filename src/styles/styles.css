@@ -9,11 +9,13 @@ body {
 
 .titulo_size {
   font-family: Roboto, sans-serif;
-  font-size: 2em;
+  font-size: 30px;
+  font-weight: 500;
 }
 
 .parrafo_bold {
   font-weight: bold;
+  color: #212529;
 }
 .div_line_height {
   line-height: 20px;

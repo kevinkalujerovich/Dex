@@ -10,7 +10,7 @@ export default function ItemDetailContainer() {
   const { Id } = useParams();
 
   useEffect(() => {
-    if (Id != null) {
+    if (Id) {
       const db = getFirestore();
       const itemsCollection = db.collection("productos");
       const highPrice = itemsCollection.where("id", "==", Id);
@@ -40,6 +40,7 @@ export default function ItemDetailContainer() {
                 garantia={item.garantia}
                 marca={item.marca}
                 importante={item.importante}
+                category={item.category}
               ></ItemDetail>
             );
           })
