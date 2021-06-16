@@ -14,7 +14,7 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import ItemList from "./ItemList";
 import { getFirestore } from "../firebase/firebase";
-
+import InstagramIcon from "@material-ui/icons/Instagram";
 export default function ItemDetail({
   img,
   description,
@@ -33,6 +33,7 @@ export default function ItemDetail({
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
+    window.scrollTo(0, 0);
     const db = getFirestore();
     const itemsCollection = db.collection("productos");
     itemsCollection
@@ -58,15 +59,13 @@ export default function ItemDetail({
   return (
     <>
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} container justify="center">
-          <Box mt={6}>
-            <img src={img} alt="imagen de producto" />
-          </Box>
+        <Grid item xs={12} sm={6}>
+          <img src={img} alt="imagen de producto" width="100%" heigth="100%" />
         </Grid>
         <Grid item xs={12} sm={6}>
           <Box mt={6}>
             <h1 className="titulo_size">{name}</h1>
-            <p className="parrafo">Item No. {id}</p>
+            <p className="parrafo_size-12">Item No. {id}</p>
             <Typography variant="h4" gutterBottom style={styles}>
               ${precio}
             </Typography>
@@ -95,18 +94,19 @@ export default function ItemDetail({
             <a href="https://www.facebook.com/">
               <FacebookIcon style={{ color: "#3b5998", fontSize: 35 }} />
             </a>
+            <a href="https://www.facebook.com/">
+              <InstagramIcon style={{ color: " #3f729b", fontSize: 35 }} />
+            </a>
           </Box>
         </Grid>
       </Grid>
-      <Container mt={8} maxWidth="md">
-        <Grid container justify="center">
+      <Container className="div_mt">
+        <Grid>
           <p>
-            <span className="parrafo_bold">Descripción</span>
-
-            <p>{description}</p>
+            <span className="parrafo_bold">Descripción </span>
           </p>
+          <p>{description}</p>
         </Grid>
-
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <p>
@@ -131,17 +131,17 @@ export default function ItemDetail({
               <span className="parrafo_bold">Marca: </span> {marca}
             </p>
           </Grid>
-        </Grid>
-        {loading ? (
-          <>
+          <Grid className="div_mt ">
             <h2 className="titulo_size">Recomendados para vos</h2>
-            <ItemList array={items} />
-          </>
-        ) : (
-          <Grid container justify="center">
-            <CircularProgress />
+            {loading ? (
+              <ItemList array={items} />
+            ) : (
+              <Grid container justify="center">
+                <CircularProgress />
+              </Grid>
+            )}
           </Grid>
-        )}
+        </Grid>
       </Container>
     </>
   );

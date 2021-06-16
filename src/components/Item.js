@@ -1,42 +1,55 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
+import { NavLink } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { NavLink } from "react-router-dom";
-
+import { CircularProgress, Grid, Container } from "@material-ui/core";
 const useStyles = makeStyles({
-  root: {
-    width: 200,
-    heigth: 600,
+  title: {
+    fontSize: 14,
   },
 });
-
-export default function Item({ name, precio, img, id }) {
+export default function Item({ name, precio, img, id, category }) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
-      <CardContent>
-        <img src={img} width="150" height="150" alt="imagen de producto" />
-        <Typography variant="body2" gutterBottom>
-          {name}
-        </Typography>
-        <Typography color="textSecondary">${precio}</Typography>
-      </CardContent>
-      <CardActions>
-        <NavLink
-          to={`/item/${id}`}
-          activeStyle={{
-            color: "white",
-            textDecoration: "none",
-          }}
-        >
-          <Button size="small">Ver mas</Button>
-        </NavLink>
-      </CardActions>
-    </Card>
+    <NavLink
+      to={`/item/${id}`}
+      style={{
+        textDecoration: "none",
+      }}
+    >
+      <Card className="card_main">
+        <CardContent>
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            {category}
+          </Typography>
+          <Grid container justify="center">
+            <img
+              src={img}
+              width="100%"
+              height="100%"
+              alt="imagen de producto"
+            />
+          </Grid>
+          <Typography variant="p">{name}</Typography>
+          {name.length < 33 && (
+            <>
+              <br />
+              <br />
+            </>
+          )}
+
+          <p className="card_precio">${precio}</p>
+        </CardContent>
+      </Card>
+    </NavLink>
   );
 }

@@ -4,8 +4,8 @@ import { Container, Grid } from "@material-ui/core";
 
 export default function ItemList({ array }) {
   return (
-    <Container maxWidth="md">
-      <Grid container spacing={2}>
+    <Container>
+      <Grid container spacing={1}>
         {array.map((item, index) => {
           return (
             <Grid item xs={12} sm={3} key={index}>
@@ -14,6 +14,7 @@ export default function ItemList({ array }) {
                 img={item.img}
                 precio={item.precio}
                 id={item.id}
+                category={item.category}
               />
             </Grid>
           );

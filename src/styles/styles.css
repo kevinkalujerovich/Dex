@@ -18,5 +18,20 @@ body {
   color: #212529;
 }
 .div_line_height {
-  line-height: 20px;
+  line-height: 14px;
+}
+.div_mt {
+  margin-top: 80px;
+}
+.card_main {
+  height: 425px;
+  width: 270;
+}
+
+.card_name {
+  font-size: 15px;
+}
+.card_precio {
+  font-size: 25px;
+  font-weight: 700;
 }
