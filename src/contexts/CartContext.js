@@ -11,7 +11,7 @@ export const CartProvider = ({ children }) => {
     if (cart.productos.some((x) => x.item.name === item.item.name)) {
       cart.productos.map((x) => {
         if (x.item.name === item.item.name) {
-          console.log(x.qy + item.qy);
+          x.qy += item.qy;
         }
       });
     } else {
