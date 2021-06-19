@@ -59,7 +59,7 @@ export default function ItemDetail({
     <>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
-          <img src={img} alt="imagen de producto" width="100%" heigth="100%" />
+          <img src={img} alt="imagen de producto" width="80%" heigth="80%" />
         </Grid>
         <Grid item xs={12} sm={6}>
           <Box mt={6}>
@@ -68,7 +68,6 @@ export default function ItemDetail({
             <Typography variant="h4" gutterBottom style={styles}>
               ${precio}
             </Typography>
-            <hr />
             <Box mt={6}>
               {cant ? (
                 <NavLink
@@ -93,7 +92,7 @@ export default function ItemDetail({
             <a href="https://www.facebook.com/">
               <FacebookIcon style={{ color: "#3b5998", fontSize: 35 }} />
             </a>
-            <a href="https://www.facebook.com/">
+            <a href="https://www.instagram.com/">
               <InstagramIcon style={{ color: " #3f729b", fontSize: 35 }} />
             </a>
           </Box>

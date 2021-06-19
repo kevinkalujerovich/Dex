@@ -9,6 +9,13 @@ const useStyles = makeStyles({
   title: {
     fontSize: 14,
   },
+  name: {
+    fontSize: 12,
+  },
+  cardMain: {
+    height: 320,
+    width: 300,
+  },
 });
 export default function Item({ name, precio, img, id, category }) {
   const classes = useStyles();
@@ -20,7 +27,7 @@ export default function Item({ name, precio, img, id, category }) {
         textDecoration: "none",
       }}
     >
-      <Card className="card_main">
+      <Card className={classes.cardMain}>
         <CardContent>
           <Typography
             className={classes.title}
@@ -30,21 +37,9 @@ export default function Item({ name, precio, img, id, category }) {
             {category}
           </Typography>
           <Grid container justify="center">
-            <img
-              src={img}
-              width="100%"
-              height="100%"
-              alt="imagen de producto"
-            />
+            <img src={img} width="60%" height="60%" alt="imagen de producto" />
           </Grid>
-          <Typography variant="body1">{name}</Typography>
-          {name.length < 33 && (
-            <>
-              <br />
-              <br />
-            </>
-          )}
-
+          <p className={classes.title}>{name}</p>
           <p className="card_precio">${precio}</p>
         </CardContent>
       </Card>

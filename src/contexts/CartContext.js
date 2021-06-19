@@ -9,9 +9,14 @@ export const CartProvider = ({ children }) => {
 
   const addItem = (item) => {
     if (cart.productos.some((x) => x.item.name === item.item.name)) {
-      return;
+      cart.productos.map((x) => {
+        if (x.item.name === item.item.name) {
+          console.log(x.qy + item.qy);
+        }
+      });
+    } else {
+      setCart({ productos: [...cart.productos, item] });
     }
-    setCart({ productos: [...cart.productos, item] });
   };
 
   const clear = () => {
