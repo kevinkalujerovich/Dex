@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import { CircularProgress, Grid, Container } from "@material-ui/core";
+import { CircularProgress, Grid} from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import { getFirestore } from "../firebase/firebase";
 

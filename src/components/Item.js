@@ -3,10 +3,8 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import CardActions from "@material-ui/core/CardActions";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { CircularProgress, Grid, Container } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 const useStyles = makeStyles({
   title: {
     fontSize: 14,
@@ -39,7 +37,7 @@ export default function Item({ name, precio, img, id, category }) {
               alt="imagen de producto"
             />
           </Grid>
-          <Typography variant="p">{name}</Typography>
+          <Typography variant="body1">{name}</Typography>
           {name.length < 33 && (
             <>
               <br />

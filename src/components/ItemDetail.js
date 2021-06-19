@@ -47,7 +47,6 @@ export default function ItemDetail({
       });
   }, [category, id]);
 
-  console.log(items);
   const cart = useCart();
   const [cant, setCant] = useState(false);
   const onAdd = (value) => {
@@ -131,8 +130,10 @@ export default function ItemDetail({
               <span className="parrafo_bold">Marca: </span> {marca}
             </p>
           </Grid>
-          <Grid className="div_mt ">
-            <h2 className="titulo_size">Recomendados para vos</h2>
+          <Grid container spacing={3} className="div_mt ">
+            <Container>
+              <h2 className="titulo_size">Recomendados para vos</h2>
+            </Container>
             {loading ? (
               <ItemList array={items} />
             ) : (
