@@ -12,9 +12,8 @@ export const CartProvider = ({ children }) => {
       cart.productos.map((x) => {
         if (x.item.name === item.item.name) {
           return (x.qy += item.qy);
-        } else {
-          return x.qy;
         }
+        return x.qy;
       });
     } else {
       setCart({ productos: [...cart.productos, item] });
