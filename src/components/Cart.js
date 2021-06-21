@@ -80,7 +80,7 @@ export default function Cart() {
                     </p>
                     <p style={{ fontSize: "12px" }}>
                       <NavLink to="/" style={{ color: "blue" }}>
-                        Seguir Comprando
+                        Seguir Comprandooo
                       </NavLink>
                     </p>
                     <Button
