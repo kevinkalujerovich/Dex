@@ -18,7 +18,7 @@ export default function ItemListContainer() {
   const classes = useStyles();
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState([]);
-  const [category, setCategory] = useState(false);
+  const [index, setIndex] = useState(false);
   const { catId } = useParams();
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function ItemListContainer() {
           .then((snapshot) => {
             setItems(snapshot.docs.map((doc) => doc.data()));
             setLoading(true);
-            setCategory(true);
+            setIndex(true);
           });
   }, [catId]);
 
@@ -46,12 +46,35 @@ export default function ItemListContainer() {
     <Container className={classes.main}>
       {loading ? (
         <>
-          {category && (
-            <Typography variant="h4" gutterBottom>
-              Los más vendidos
-            </Typography>
+          {index ? (
+            <>
+              <Typography variant="h4" gutterBottom>
+                Los más vendidos
+              </Typography>
+              <Grid container spacing={1}>
+                <ItemList array={items} />
+              </Grid>
+            </>
+          ) : (
+            <Container>
+              <Grid container spacing={1}>
+                <Grid item xs={12} sm={2}>
+                  <p>asdaskdlñask</p>
+                  <p>asdaskdlñadddddddddsk</p>
+                  <p>asdaskdlñask</p>
+                  <p>asdaskdlñask</p>
+                  <p>asdaskdlñask</p>
+                  <p>asdaskdlñask</p>
+                  <p>asdaskdlñask</p>v
+                </Grid>
+                <Grid item xs={12} sm={10}>
+                  <Grid container spacing={4}>
+                    <ItemList array={items} />
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Container>
           )}
-          <ItemList array={items} />
         </>
       ) : (
         <Grid container justify="center">

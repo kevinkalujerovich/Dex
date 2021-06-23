@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 
 export default function ItemList({ array }) {
   return (
-    <Grid container spacing={1}>
+    <>
       {array.map((item, index) => {
         return (
           <Grid item xs={12} sm={3} key={index}>
@@ -18,6 +18,6 @@ export default function ItemList({ array }) {
           </Grid>
         );
       })}
-    </Grid>
+    </>
   );
 }

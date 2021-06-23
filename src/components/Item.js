@@ -13,8 +13,8 @@ const useStyles = makeStyles({
     fontSize: 12,
   },
   cardMain: {
-    height: 360,
-    width: 280,
+    height: 340,
+    width: 250,
   },
 });
 export default function Item({ name, precio, img, id, category }) {
