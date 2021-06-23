@@ -13,8 +13,8 @@ const useStyles = makeStyles({
     fontSize: 12,
   },
   cardMain: {
-    height: 320,
-    width: 300,
+    height: 360,
+    width: 280,
   },
 });
 export default function Item({ name, precio, img, id, category }) {
@@ -37,7 +37,7 @@ export default function Item({ name, precio, img, id, category }) {
             {category}
           </Typography>
           <Grid container justify="center">
-            <img src={img} width="60%" height="60%" alt="imagen de producto" />
+            <img src={img} width="80%" height="80%" alt="imagen de producto" />
           </Grid>
           <p className={classes.title}>{name}</p>
           <p className="card_precio">${precio}</p>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import { Grid, Container, Button } from "@material-ui/core";
+import { Grid, Container, Button, Typography } from "@material-ui/core";
 import { useCart } from "../contexts/CartContext";
 import { makeStyles } from "@material-ui/core/styles";
 import { NavLink } from "react-router-dom";
@@ -10,6 +10,12 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { getFirestore } from "../firebase/firebase";
 import FinalMessage from "../components/FinalMessage";
 const useStyles = makeStyles({
+  main: {
+    marginTop: 50,
+  },
+  iconoCarrito: {
+    marginBottom: 350,
+  },
   card: {
     marginBottom: 10,
     height: 110,
@@ -23,7 +29,7 @@ const useStyles = makeStyles({
     backgroundColor: "#09ae85",
   },
   cardDetalle: {
-    paddingTop: 40,
+    paddingTop: 25,
     borderColor: "black",
     marginBottom: 300,
   },
@@ -67,7 +73,7 @@ export default function Cart() {
         <>
           {cart.cart.productos.length > 0 ? (
             <>
-              <Container>
+              <Container className={classes.main}>
                 <Grid container spacing={4}>
                   <Grid item xs={12} sm={9}>
                     <h2 style={{ display: "inline" }}>Mi Carrito </h2>
@@ -226,7 +232,7 @@ export default function Cart() {
               </Container>
             </>
           ) : (
-            <Container>
+            <Container className={classes.main}>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
                   <h2 style={{ display: "inline" }}>Mi Carrito </h2>
@@ -245,24 +251,14 @@ export default function Cart() {
                   </p>
                 </Grid>
               </Grid>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
+              <Grid container justify="center">
                 <LocalMallIcon style={{ fontSize: "40px" }} />
-              </div>
-              <h2
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                Tu carrito está vacío.
-              </h2>
+              </Grid>
+              <Grid container justify="center" className={classes.iconoCarrito}>
+                <Typography variant="h4" gutterBottom>
+                  Tu carrito está vacío.
+                </Typography>
+              </Grid>
             </Container>
           )}
         </>

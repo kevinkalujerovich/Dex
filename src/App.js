@@ -1,5 +1,8 @@
 import "../src/styles/styles.css";
 import Navbar from "./components/Navbar";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
+import { Grid } from "@material-ui/core";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import { CartProvider } from "./contexts/CartContext";
@@ -14,34 +17,26 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path="/">
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <ItemListContainer />
+              <Main />
             </Route>
             <Route exact path="/category/:catId">
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <ItemListContainer />
+              <Grid container spacing={1}>
+                <Grid item xs={12} sm={2}>
+                  asdakljdklajdklasj
+                </Grid>
+                <Grid item xs={12} sm={10}>
+                  <ItemListContainer />
+                </Grid>
+              </Grid>
             </Route>
             <Route exact path="/item/:Id">
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
               <ItemDetailContainer />
             </Route>
             <Route exact path="/cart">
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
               <Cart />
             </Route>
           </Switch>
+          <Footer />
         </Router>
       </div>
     </CartProvider>

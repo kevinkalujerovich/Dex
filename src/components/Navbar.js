@@ -2,13 +2,23 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import CartWidget from "./CartWidget";
-import { Button } from "@material-ui/core";
+import { Button, Grid } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
+import logo from "../img/logo.png";
 
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
+  },
+  navbar: {
+    backgroundColor: "black",
+  },
+  mensajeNav: {
+    backgroundColor: "red",
+  },
+  mensajeNavTypography: {
+    paddingTop: 5,
   },
 }));
 
@@ -24,7 +34,16 @@ export default function Navbar() {
 
   return (
     <div>
-      <AppBar position="fixed">
+      <AppBar position="static" className={classes.navbar}>
+        <Grid container justify="center" className={classes.mensajeNav}>
+          <Typography
+            variant="subtitle1"
+            gutterBottom
+            className={classes.mensajeNavTypography}
+          >
+            ¡Envíos a todo el país!
+          </Typography>
+        </Grid>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <NavLink
@@ -34,7 +53,7 @@ export default function Navbar() {
                 textDecoration: "none",
               }}
             >
-              Tienda
+              <img src={logo} alt="imagen de logo de tienda" />
             </NavLink>
           </Typography>
           {categorias.map((x, index) => (

@@ -3,8 +3,14 @@ import ItemDetail from "./ItemDetail";
 import { Container, CircularProgress, Box, Grid } from "@material-ui/core";
 import { getFirestore } from "../firebase/firebase";
 import { useParams } from "react-router-dom";
-
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles({
+  main: {
+    marginTop: 40,
+  },
+});
 export default function ItemDetailContainer() {
+  const classes = useStyles();
   const [items, setItems] = useState({});
   const [loading, setLoading] = useState(false);
   const { Id } = useParams();
@@ -21,7 +27,7 @@ export default function ItemDetailContainer() {
     }
   }, [Id]);
   return (
-    <Container>
+    <Container className={classes.main}>
       <Grid container spacing={2}>
         {loading ? (
           items.map((item) => {

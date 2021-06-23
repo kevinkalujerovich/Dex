@@ -29,7 +29,6 @@ export const CartProvider = ({ children }) => {
       productos: cart.productos.filter((x) => x.item.id !== itemId),
     });
   };
-  console.log(cart.productos);
   return (
     <CartContext.Provider value={{ cart, addItem, clear, removeItem }}>
       {children}
