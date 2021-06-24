@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   main: {
     backgroundColor: "black",
     color: "#ffffffde",
-    marginTop: 150,
+    marginTop: 200,
   },
   secciones: {
     lineHeight: 0.5,
@@ -27,7 +27,6 @@ const useStyles = makeStyles({
 export default function IndexLinks() {
   const classes = useStyles();
   const footerBlockOne = [
-    "Institucional",
     "Quiénes Somos",
     "Políticas de Privacidad",
     "Protocolos COVID-19",
@@ -35,7 +34,6 @@ export default function IndexLinks() {
     "Defensa del Consumidor",
   ];
   const footerBlockTwo = [
-    "Ayuda",
     "Preguntas Frecuentes",
     "Sucursales",
     "Pagos",
@@ -44,12 +42,8 @@ export default function IndexLinks() {
     "Nuevo Sitio",
   ];
   const footerBlockThree = [
-    "Centro de Atención al Cliente",
     "0810-888-3398",
     "Lun a Vier de 9 a 20 / Sáb de 9 a 17",
-    "Contacto",
-    "Botón de Arrepentimiento",
-    "11-5799-0114",
   ];
 
   return (
@@ -58,41 +52,32 @@ export default function IndexLinks() {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
             <div className={classes.secciones}>
-              {footerBlockOne.map((x, i) =>
-                i === 0 ? (
+              <p>Institucional</p>
+              {footerBlockOne.map((x, i) => (
+                <NavLink to="/" className={classes.navLink} key={i}>
                   <p>{x}</p>
-                ) : (
-                  <NavLink to="/" className={classes.navLink}>
-                    <p>{x}</p>
-                  </NavLink>
-                )
-              )}
+                </NavLink>
+              ))}
             </div>
           </Grid>
           <Grid item xs={12} sm={4}>
             <div className={classes.secciones}>
-              {footerBlockTwo.map((x, i) =>
-                i === 0 ? (
+              <p>Ayuda</p>
+              {footerBlockTwo.map((x, i) => (
+                <NavLink to="/" className={classes.navLink} key={i}>
                   <p>{x}</p>
-                ) : (
-                  <NavLink to="/" className={classes.navLink}>
-                    <p>{x}</p>
-                  </NavLink>
-                )
-              )}
+                </NavLink>
+              ))}
             </div>
           </Grid>
           <Grid item xs={12} sm={4}>
             <div className={classes.secciones}>
-              {footerBlockThree.map((x, i) =>
-                i < 3 ? (
+              <p>Centro de Atención al Cliente</p>
+              {footerBlockThree.map((x, i) => (
+                <NavLink to="/" className={classes.navLink} key={i}>
                   <p>{x}</p>
-                ) : (
-                  <NavLink to="/" className={classes.navLink}>
-                    <p>{x}</p>
-                  </NavLink>
-                )
-              )}
+                </NavLink>
+              ))}
             </div>
           </Grid>
         </Grid>

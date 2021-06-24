@@ -5,9 +5,9 @@ import { Grid } from "@material-ui/core";
 export default function ItemList({ array }) {
   return (
     <>
-      {array.map((item, index) => {
+      {array.map((item) => {
         return (
-          <Grid item xs={12} sm={3} key={index}>
+          <Grid item xs={12} sm={3} key={item.id}>
             <Item
               name={item.name}
               img={item.img}

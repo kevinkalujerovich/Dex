@@ -58,20 +58,7 @@ export default function ItemListContainer() {
           ) : (
             <Container>
               <Grid container spacing={1}>
-                <Grid item xs={12} sm={2}>
-                  <p>asdaskdlñask</p>
-                  <p>asdaskdlñadddddddddsk</p>
-                  <p>asdaskdlñask</p>
-                  <p>asdaskdlñask</p>
-                  <p>asdaskdlñask</p>
-                  <p>asdaskdlñask</p>
-                  <p>asdaskdlñask</p>v
-                </Grid>
-                <Grid item xs={12} sm={10}>
-                  <Grid container spacing={4}>
-                    <ItemList array={items} />
-                  </Grid>
-                </Grid>
+                <ItemList array={items} />
               </Grid>
             </Container>
           )}

@@ -2,7 +2,6 @@ import "../src/styles/styles.css";
 import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
-import ItemListCategory from "./components/ItemListCategory";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import { CartProvider } from "./contexts/CartContext";
@@ -24,6 +23,9 @@ function App() {
             </Route>
             <Route exact path="/item/:Id">
               <ItemDetailContainer />
+            </Route>
+            <Route exact path="/Botines/:ordenado">
+              <Cart />
             </Route>
             <Route exact path="/cart">
               <Cart />
