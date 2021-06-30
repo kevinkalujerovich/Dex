@@ -16,6 +16,7 @@ import ItemList from "./ItemList";
 import { getFirestore } from "../firebase/firebase";
 import { makeStyles } from "@material-ui/core/styles";
 import InstagramIcon from "@material-ui/icons/Instagram";
+
 const useStyles = makeStyles({
   NavLink: {
     textDecoration: "none",

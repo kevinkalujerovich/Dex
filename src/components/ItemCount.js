@@ -3,6 +3,7 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import { Box, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 const useStyles = makeStyles({
   btnAgregar: {
     color: "white",
@@ -10,10 +11,15 @@ const useStyles = makeStyles({
     "&:hover": {
       backgroundColor: "#e31724",
     },
-    cantidad: {
-      backgroundColor: "white",
-      fontWeight: "bold",
-    },
+  },
+  cantidad: {
+    marginLeft: 25,
+    marginRight: 25,
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+  iconoFavoritos: {
+    color: "black",
   },
 });
 export default function ItemCount({ initial, stock, funcion }) {
@@ -32,32 +38,31 @@ export default function ItemCount({ initial, stock, funcion }) {
   };
 
   return (
-    <Grid container spacing={2}>
-      <Grid item sm={3}>
-        <Box>
-          <Button variant="contained">-</Button>
-          <span className={classes.cantidad}>{counter}</span>
-          <Button variant="contained">+</Button>
-          <ButtonGroup
-            variant="contained"
-            aria-label="contained primary button group"
-          >
-            <Button onClick={() => restarCounter()}>-</Button>
-            <Button>{counter}</Button>
-            <Button onClick={() => sumarCounter()}>+</Button>
-          </ButtonGroup>
-        </Box>
-      </Grid>
-      <Grid item sm={9}>
-        <>
-          <Button
-            variant="contained"
-            className={classes.btnAgregar}
-            onClick={() => funcion(counter)}
-          >
-            Agregar al carrito
+    <Grid container spacing={1}>
+      <Grid item sm={5}>
+        <ButtonGroup color="default" aria-label="small outlined button group">
+          <Button variant="contained" onClick={() => restarCounter()}>
+            -
           </Button>
-        </>
+          <Button variant="contained">{counter}</Button>
+          <Button variant="contained" onClick={() => sumarCounter()}>
+            +
+          </Button>
+        </ButtonGroup>
+      </Grid>
+      <Grid item sm={4}>
+        <Button
+          variant="contained"
+          className={classes.btnAgregar}
+          onClick={() => funcion(counter)}
+        >
+          Agregar al carrito
+        </Button>
+      </Grid>
+      <Grid item sm={3}>
+        <Button>
+          <FavoriteBorderIcon className={classes.iconoFavoritos} />
+        </Button>
       </Grid>
     </Grid>
   );
