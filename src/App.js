@@ -24,9 +24,6 @@ function App() {
             <Route exact path="/item/:Id">
               <ItemDetailContainer />
             </Route>
-            <Route exact path="/Botines/:ordenado">
-              <Cart />
-            </Route>
             <Route exact path="/cart">
               <Cart />
             </Route>

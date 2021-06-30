@@ -14,7 +14,28 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import ItemList from "./ItemList";
 import { getFirestore } from "../firebase/firebase";
+import { makeStyles } from "@material-ui/core/styles";
 import InstagramIcon from "@material-ui/icons/Instagram";
+const useStyles = makeStyles({
+  NavLink: {
+    textDecoration: "none",
+    color: "white",
+  },
+  iconoInstagram: {
+    color: " #3f729b",
+    fontSize: 35,
+    paddingTop: 10,
+  },
+  iconoFacebook: {
+    color: "#3b5998",
+    fontSize: 35,
+  },
+  iconoTwitter: {
+    color: "#00acee",
+    fontSize: 35,
+  },
+});
+
 export default function ItemDetail({
   img,
   description,
@@ -30,8 +51,9 @@ export default function ItemDetail({
   garantia,
   category,
 }) {
+  const classes = useStyles();
   const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     window.scrollTo(0, 0);
     const db = getFirestore();
@@ -43,7 +65,7 @@ export default function ItemDetail({
         setItems(
           snapshot.docs.map((doc) => doc.data()).filter((x) => x.id !== id)
         );
-        setLoading(true);
+        setLoading(false);
       });
   }, [category, id]);
 
@@ -54,7 +76,6 @@ export default function ItemDetail({
     cart.addItem({ item: array, qy: value });
   };
 
-  const styles = { fontWeight: "bold" };
   return (
     <>
       <Grid container spacing={3}>
@@ -65,15 +86,12 @@ export default function ItemDetail({
           <Box mt={6}>
             <h1 className="titulo_size">{name}</h1>
             <p className="parrafo_size-12">Item No. {id}</p>
-            <Typography variant="h4" gutterBottom style={styles}>
+            <Typography variant="h4" gutterBottom>
               ${precio}
             </Typography>
             <Box mt={6}>
               {cant ? (
-                <NavLink
-                  to="/cart"
-                  style={{ textDecoration: "none", color: "white" }}
-                >
+                <NavLink to="/cart" className={classes.NavLink}>
                   <Button variant="contained" color="primary">
                     Terminar mi compra
                   </Button>
@@ -87,13 +105,13 @@ export default function ItemDetail({
             Compartilo vía
             <br />
             <a href="https://twitter.com/">
-              <TwitterIcon style={{ color: "#00acee", fontSize: 35 }} />
+              <TwitterIcon className={classes.iconoTwitter} />
             </a>
             <a href="https://www.facebook.com/">
-              <FacebookIcon style={{ color: "#3b5998", fontSize: 35 }} />
+              <FacebookIcon className={classes.iconoFacebook} />
             </a>
             <a href="https://www.instagram.com/">
-              <InstagramIcon style={{ color: " #3f729b", fontSize: 35 }} />
+              <InstagramIcon className={classes.iconoInstagram} />
             </a>
           </Box>
         </Grid>
@@ -134,11 +152,11 @@ export default function ItemDetail({
               <h2 className="titulo_size">Recomendados para vos</h2>
             </Container>
             {loading ? (
-              <ItemList array={items} />
-            ) : (
               <Grid container justify="center">
                 <CircularProgress />
               </Grid>
+            ) : (
+              <ItemList array={items} />
             )}
           </Grid>
         </Grid>

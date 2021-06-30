@@ -5,7 +5,6 @@ const useStyles = makeStyles({
   root: {
     backgroundColor: "#fb547c",
   },
-  textTitle: {},
   codigoOrden: {
     fontWeight: "bold",
     fontSize: 18,

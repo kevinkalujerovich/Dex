@@ -10,6 +10,7 @@ import logo from "../img/logo.png";
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
+    paddingTop: 10,
   },
   navbar: {
     backgroundColor: "black",
@@ -53,7 +54,7 @@ export default function Navbar() {
                 textDecoration: "none",
               }}
             >
-              <img src={logo} alt="imagen de logo de tienda" />
+              <img src={logo} alt="imagen de logo de tienda" width="150px" />
             </NavLink>
           </Typography>
           {categorias.map((x, index) => (

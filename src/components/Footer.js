@@ -24,28 +24,27 @@ const useStyles = makeStyles({
     fontSize: 45,
   },
 });
+const footerBlockOne = [
+  "Quiénes Somos",
+  "Políticas de Privacidad",
+  "Protocolos COVID-19",
+  "Términos y Condiciones",
+  "Defensa del Consumidor",
+];
+const footerBlockTwo = [
+  "Preguntas Frecuentes",
+  "Sucursales",
+  "Pagos",
+  "Entregas",
+  "Cambios",
+  "Nuevo Sitio",
+];
+const footerBlockThree = [
+  "0810-888-3398",
+  "Lun a Vier de 9 a 20 / Sáb de 9 a 17",
+];
 export default function IndexLinks() {
   const classes = useStyles();
-  const footerBlockOne = [
-    "Quiénes Somos",
-    "Políticas de Privacidad",
-    "Protocolos COVID-19",
-    "Términos y Condiciones",
-    "Defensa del Consumidor",
-  ];
-  const footerBlockTwo = [
-    "Preguntas Frecuentes",
-    "Sucursales",
-    "Pagos",
-    "Entregas",
-    "Cambios",
-    "Nuevo Sitio",
-  ];
-  const footerBlockThree = [
-    "0810-888-3398",
-    "Lun a Vier de 9 a 20 / Sáb de 9 a 17",
-  ];
-
   return (
     <div className={classes.main}>
       <Container>

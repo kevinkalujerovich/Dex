@@ -2,8 +2,22 @@ import { useState } from "react";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import { Box, Grid } from "@material-ui/core";
-
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles({
+  btnAgregar: {
+    color: "white",
+    backgroundColor: "#e31724",
+    "&:hover": {
+      backgroundColor: "#e31724",
+    },
+    cantidad: {
+      backgroundColor: "white",
+      fontWeight: "bold",
+    },
+  },
+});
 export default function ItemCount({ initial, stock, funcion }) {
+  const classes = useStyles();
   const [counter, setCounter] = useState(initial);
 
   const restarCounter = () => {
@@ -19,11 +33,13 @@ export default function ItemCount({ initial, stock, funcion }) {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs>
-        <Box display="flex" justifyContent="center">
+      <Grid item sm={3}>
+        <Box>
+          <Button variant="contained">-</Button>
+          <span className={classes.cantidad}>{counter}</span>
+          <Button variant="contained">+</Button>
           <ButtonGroup
             variant="contained"
-            color="primary"
             aria-label="contained primary button group"
           >
             <Button onClick={() => restarCounter()}>-</Button>
@@ -32,11 +48,11 @@ export default function ItemCount({ initial, stock, funcion }) {
           </ButtonGroup>
         </Box>
       </Grid>
-      <Grid item xs>
+      <Grid item sm={9}>
         <>
           <Button
             variant="contained"
-            color="primary"
+            className={classes.btnAgregar}
             onClick={() => funcion(counter)}
           >
             Agregar al carrito
