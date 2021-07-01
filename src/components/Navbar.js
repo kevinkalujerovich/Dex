@@ -1,16 +1,17 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Toolbar, Typography, Link } from "@material-ui/core";
 import CartWidget from "./CartWidget";
-import { Button, Grid } from "@material-ui/core";
+import FavoriteCart from "./FavoriteCart";
+import { Box, Grid } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
-import { useCart } from "../contexts/CartContext";
 import logo from "../img/logo.png";
 
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     paddingTop: 10,
+    paddingLeft: 10,
   },
   navbar: {
     backgroundColor: "black",
@@ -20,6 +21,31 @@ const useStyles = makeStyles((theme) => ({
   },
   mensajeNavTypography: {
     paddingTop: 5,
+  },
+  link: {
+    fontWeight: "bold",
+    color: "black",
+  },
+  navLink: {
+    textDecoration: "none",
+  },
+  linkCategoria: {
+    color: "black",
+    fontWeight: "bold",
+    marginLeft: 10,
+    marginRight: 10,
+    fontSize: 18,
+    "&:hover": {
+      textDecoration: "none",
+    },
+  },
+  navbarCategorias: {
+    borderBottomColor: "black",
+    borderBottomWidth: 0.5,
+    borderBottomStyle: "solid",
+  },
+  iconosNav: {
+    color: "white",
   },
 }));
 
@@ -31,58 +57,46 @@ const categorias = [
 
 export default function Navbar() {
   const classes = useStyles();
-  const cart = useCart();
 
   return (
-    <div>
-      <AppBar position="static" className={classes.navbar}>
-        <Grid container justify="center" className={classes.mensajeNav}>
-          <Typography
-            variant="subtitle1"
-            gutterBottom
-            className={classes.mensajeNavTypography}
-          >
-            ¡Envíos a todo el país!
-          </Typography>
-        </Grid>
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            <NavLink
-              to="/"
-              activeStyle={{
-                color: "white",
-                textDecoration: "none",
-              }}
+    <>
+      <div>
+        <AppBar position="static" className={classes.navbar}>
+          <Grid container justify="center" className={classes.mensajeNav}>
+            <Typography
+              variant="subtitle1"
+              gutterBottom
+              className={classes.mensajeNavTypography}
             >
-              <img src={logo} alt="imagen de logo de tienda" width="150px" />
+              ¡Envíos a todo el país!
+            </Typography>
+          </Grid>
+          <Toolbar>
+            <Typography variant="h6" className={classes.title}>
+              <NavLink to="/">
+                <img src={logo} alt="imagen de logo de tienda" width="150px" />
+              </NavLink>
+            </Typography>
+            <NavLink to="/cart" className={classes.iconosNav}>
+              <FavoriteCart />
             </NavLink>
-          </Typography>
-          {categorias.map((x, index) => (
-            <NavLink
-              to={x.link}
-              activeStyle={{
-                fontWeight: "bold",
-                color: "#3f50b5",
-                textDecoration: "none",
-                background: "white",
-              }}
-              style={{
-                textDecoration: "none",
-                color: "white",
-                fontWeight: "bold",
-              }}
-              key={index}
-            >
-              <Button color="inherit">{x.text}</Button>
-            </NavLink>
-          ))}
-          {cart.cart.productos.length > 0 && (
-            <NavLink to="/cart" style={{ color: "white" }}>
+            <NavLink to="/cart" className={classes.iconosNav}>
               <CartWidget />
             </NavLink>
-          )}
-        </Toolbar>
-      </AppBar>
-    </div>
+          </Toolbar>
+        </AppBar>
+        <Box className={classes.navbarCategorias}>
+          <Toolbar variant="dense">
+            {categorias.map((x, index) => (
+              <NavLink to={x.link} key={index} className={classes.navLink}>
+                <Typography variant="h6">
+                  <Link className={classes.linkCategoria}>{x.text}</Link>
+                </Typography>
+              </NavLink>
+            ))}
+          </Toolbar>
+        </Box>
+      </div>
+    </>
   );
 }

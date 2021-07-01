@@ -12,7 +12,7 @@ const useStyles = makeStyles({
 export default function ItemDetailContainer() {
   const classes = useStyles();
   const [items, setItems] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { Id } = useParams();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function ItemDetailContainer() {
       const highPrice = itemsCollection.where("id", "==", Id);
       highPrice.get().then((snapshot) => {
         setItems(snapshot.docs.map((doc) => doc.data()));
-        setLoading(true);
+        setLoading(false);
       });
     }
   }, [Id]);
@@ -30,6 +30,10 @@ export default function ItemDetailContainer() {
     <Container className={classes.main}>
       <Grid container spacing={2}>
         {loading ? (
+          <Box mx="auto">
+            <CircularProgress />
+          </Box>
+        ) : (
           items.map((item) => {
             return (
               <ItemDetail
@@ -50,10 +54,6 @@ export default function ItemDetailContainer() {
               ></ItemDetail>
             );
           })
-        ) : (
-          <Box mx="auto">
-            <CircularProgress />
-          </Box>
         )}
       </Grid>
     </Container>

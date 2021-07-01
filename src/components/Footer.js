@@ -9,19 +9,23 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   main: {
     backgroundColor: "black",
-    color: "#ffffffde",
+    color: "white",
     marginTop: 200,
   },
   secciones: {
     lineHeight: 0.5,
-    color: "#ffffffde",
+    color: "white",
   },
   navLink: {
-    color: "#ffffffde",
+    color: "white",
   },
   redes: {
-    color: "#ffffffde",
+    color: "white",
     fontSize: 45,
+  },
+  titleSecciones: {
+    fontWeight: "bold",
+    fontSize: 20,
   },
 });
 const footerBlockOne = [
@@ -51,7 +55,7 @@ export default function IndexLinks() {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
             <div className={classes.secciones}>
-              <p>Institucional</p>
+              <p className={classes.titleSecciones}>Institucional</p>
               {footerBlockOne.map((x, i) => (
                 <NavLink to="/" className={classes.navLink} key={i}>
                   <p>{x}</p>
@@ -61,7 +65,7 @@ export default function IndexLinks() {
           </Grid>
           <Grid item xs={12} sm={4}>
             <div className={classes.secciones}>
-              <p>Ayuda</p>
+              <p className={classes.titleSecciones}>Ayuda</p>
               {footerBlockTwo.map((x, i) => (
                 <NavLink to="/" className={classes.navLink} key={i}>
                   <p>{x}</p>
@@ -71,11 +75,11 @@ export default function IndexLinks() {
           </Grid>
           <Grid item xs={12} sm={4}>
             <div className={classes.secciones}>
-              <p>Centro de Atención al Cliente</p>
+              <p className={classes.titleSecciones}>
+                Centro de Atención al Cliente
+              </p>
               {footerBlockThree.map((x, i) => (
-                <NavLink to="/" className={classes.navLink} key={i}>
-                  <p>{x}</p>
-                </NavLink>
+                <p key={i}>{x}</p>
               ))}
             </div>
           </Grid>
@@ -95,7 +99,7 @@ export default function IndexLinks() {
           </Grid>
           <Grid item xs={12} sm={10}>
             <Typography variant="caption" display="block" gutterBottom>
-              © Copyright - 2017 - 2021 www.ecommerce-react.com.ar, TODOS LOS
+              © Copyright - 2017 - 2021 www.dexter-react.com.ar, TODOS LOS
               DERECHOS RESERVADOS. Las fotos contenidas en este site, el
               logotipo y las marcas son propiedad de www.ecommerce-react.com.ar
               y/o de sus respectivos titulares. Está prohibida la reproducción

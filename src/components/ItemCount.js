@@ -1,11 +1,12 @@
 import { useState } from "react";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
-import { Box, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 const useStyles = makeStyles({
   btnAgregar: {
+    float: "right",
     color: "white",
     backgroundColor: "#e31724",
     "&:hover": {
@@ -20,6 +21,10 @@ const useStyles = makeStyles({
   },
   iconoFavoritos: {
     color: "black",
+  },
+  favoriteIcon: {
+    color: "#black",
+    fontSize: 32,
   },
 });
 export default function ItemCount({ initial, stock, funcion }) {
@@ -39,8 +44,12 @@ export default function ItemCount({ initial, stock, funcion }) {
 
   return (
     <Grid container spacing={1}>
-      <Grid item sm={5}>
-        <ButtonGroup color="default" aria-label="small outlined button group">
+      <Grid item sm={4}>
+        <ButtonGroup
+          size="large"
+          color="default"
+          aria-label="small outlined button group"
+        >
           <Button variant="contained" onClick={() => restarCounter()}>
             -
           </Button>
@@ -50,9 +59,10 @@ export default function ItemCount({ initial, stock, funcion }) {
           </Button>
         </ButtonGroup>
       </Grid>
-      <Grid item sm={4}>
+      <Grid item sm={5}>
         <Button
           variant="contained"
+          size="large"
           className={classes.btnAgregar}
           onClick={() => funcion(counter)}
         >
@@ -60,8 +70,8 @@ export default function ItemCount({ initial, stock, funcion }) {
         </Button>
       </Grid>
       <Grid item sm={3}>
-        <Button>
-          <FavoriteBorderIcon className={classes.iconoFavoritos} />
+        <Button className={classes.favoriteFab}>
+          <FavoriteBorderIcon className={classes.favoriteIcon} />
         </Button>
       </Grid>
     </Grid>

@@ -139,7 +139,7 @@ export default function ItemListContainer() {
               <Typography variant="h4" gutterBottom>
                 Los más vendidos
               </Typography>
-              <Grid container spacing={1}>
+              <Grid container spacing={10}>
                 <ItemList array={items} />
               </Grid>
             </>
