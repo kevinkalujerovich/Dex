@@ -18,6 +18,7 @@ const useStyles = makeStyles({
   },
   navLink: {
     color: "white",
+    textDecoration: "none",
   },
   redes: {
     color: "white",
@@ -99,14 +100,14 @@ export default function IndexLinks() {
           </Grid>
           <Grid item xs={12} sm={10}>
             <Typography variant="caption" display="block" gutterBottom>
-              © Copyright - 2017 - 2021 www.dexter-react.com.ar, TODOS LOS
-              DERECHOS RESERVADOS. Las fotos contenidas en este site, el
-              logotipo y las marcas son propiedad de www.ecommerce-react.com.ar
-              y/o de sus respectivos titulares. Está prohibida la reproducción
-              total o parcial, sin la expresa autorización de la administradora
-              de la tienda virtual. Dexter, empresa perteneciente al grupo DABRA
-              S.A. con domicilio en Autopista Panamericana KM 25,6 - Don
-              Torcuato de la Provincia de Buenos Aires – Argentina.
+              © Copyright - 2017 - 2021 www.dex-react.com.ar, TODOS LOS DERECHOS
+              RESERVADOS. Las fotos contenidas en este site, el logotipo y las
+              marcas son propiedad de www.ecommerce-react.com.ar y/o de sus
+              respectivos titulares. Está prohibida la reproducción total o
+              parcial, sin la expresa autorización de la administradora de la
+              tienda virtual. Dexter, empresa perteneciente al grupo DABRA S.A.
+              con domicilio en Autopista Panamericana KM 25,6 - Don Torcuato de
+              la Provincia de Buenos Aires – Argentina.
             </Typography>
           </Grid>
         </Grid>

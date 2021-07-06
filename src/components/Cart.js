@@ -12,13 +12,11 @@ import FinalMessage from "../components/FinalMessage";
 const useStyles = makeStyles({
   main: {
     marginTop: 50,
-  },
-  iconoCarrito: {
     marginBottom: 350,
   },
   card: {
     marginBottom: 10,
-    height: 110,
+    height: 120,
   },
   colorRed: {
     color: "red",
@@ -26,12 +24,56 @@ const useStyles = makeStyles({
   },
   colorButton: {
     color: "white",
-    backgroundColor: "#09ae85",
+    width: 300,
+    backgroundColor: "#e31724",
+    "&:hover": {
+      backgroundColor: "#e31724",
+    },
   },
-  cardDetalle: {
-    paddingTop: 25,
-    borderColor: "black",
-    marginBottom: 300,
+  titleMain: {
+    display: "inline",
+  },
+  titleParrafo: {
+    display: "inline",
+    fontSize: "12px",
+  },
+  navLink: {
+    fontSize: 13,
+    color: "blue",
+  },
+  titleCard: {
+    fontSize: "13px",
+    fontWeight: "bold",
+  },
+  titleCardDetalles: {
+    fontSize: "13px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontWeight: "bold",
+  },
+  titleCardCantidad: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "15px",
+  },
+  iconoCarrito: {
+    fontSize: "40px",
+    fontWeight: "bold",
+  },
+  parrafoTelefono: {
+    float: "right",
+  },
+  titleCompra: {
+    fontSize: 13,
+    fontWeight: 500,
+  },
+  titleCompraDetalle: {
+    fontSize: 20,
+  },
+  boxCompra: {
+    marginTop: 85,
   },
 });
 export default function Cart() {
@@ -74,19 +116,19 @@ export default function Cart() {
           {cart.cart.productos.length > 0 ? (
             <>
               <Container className={classes.main}>
-                <Grid container spacing={4}>
+                <Grid container spacing={2}>
                   <Grid item xs={12} sm={9}>
-                    <h2 style={{ display: "inline" }}>Mi Carrito </h2>
-                    <p style={{ display: "inline", fontSize: "12px" }}>
+                    <h2 className={classes.titleMain}>Mi Carrito </h2>
+                    <p className={classes.titleParrafo}>
                       {cart.cart.productos.reduce(
                         (total, n) => total + n.qy,
                         0
                       ) + " "}
                       Productos
                     </p>
-                    <p style={{ fontSize: "12px" }}>
-                      <NavLink to="/" style={{ color: "blue" }}>
-                        Seguir Comprando
+                    <p>
+                      <NavLink to="/" className={classes.navLink}>
+                        CONTINUAR COMPRANDO
                       </NavLink>
                     </p>
                     <Button
@@ -114,62 +156,36 @@ export default function Cart() {
                                   alt="imagen de producto"
                                 />
                               </Grid>
-                              <Grid item xs={12} sm={5}>
-                                <p
-                                  style={{
-                                    fontSize: "15px",
-                                    fontWeight: "bold",
-                                  }}
-                                >
+                              <Grid item xs={12} sm={4}>
+                                <p className={classes.titleCard}>
                                   {x.item.name}
                                 </p>
                                 <p style={{ fontSize: "15px" }}>
-                                  Item No.:{x.item.id}
+                                  Item No.{x.item.id}
                                 </p>
                               </Grid>
-                              <Grid item xs={12} sm={2}>
-                                <p
-                                  style={{
-                                    fontSize: "15px",
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                  }}
-                                >
+                              <Grid item xs={12} sm={1}>
+                                <p className={classes.titleCardDetalles}>
                                   Cantidad
                                 </p>
-                                <p
-                                  style={{
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    fontSize: "15px",
-                                  }}
-                                >
+                                <p className={classes.titleCardCantidad}>
                                   {x.qy}
                                 </p>
                               </Grid>
                               <Grid item xs={12} sm={2}>
-                                <p
-                                  style={{
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    fontSize: "15px",
-                                  }}
-                                >
+                                <p className={classes.titleCardDetalles}>
                                   Precio
                                 </p>
-                                <p
-                                  style={{
-                                    fontSize: "15px",
-                                    fontWeight: "bold",
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                  }}
-                                >
+                                <p className={classes.titleCardCantidad}>
                                   ${x.item.precio}
+                                </p>
+                              </Grid>
+                              <Grid item xs={12} sm={2}>
+                                <p className={classes.titleCardDetalles}>
+                                  Subtotal
+                                </p>
+                                <p className={classes.titleCardCantidad}>
+                                  ${x.item.precio * x.qy}
                                 </p>
                               </Grid>
                               <Grid
@@ -193,39 +209,39 @@ export default function Cart() {
                     })}
                   </Grid>
                   <Grid item xs={12} sm={3}>
-                    <p style={{ fontWeight: "bold" }}>
-                      ¿Necesitás ayuda? 0810-888-3398
-                    </p>
-                    <Grid item xs={12} sm={12}>
-                      <div className={classes.cardDetalle}>
-                        <p>RESUMEN DE COMPRA</p>
-                        <Grid container spacing={1}>
-                          <Grid item xs={8} sm={8}>
-                            <p>TOTAL</p>
-                          </Grid>
-                          <Grid item xs={4} sm={4}>
-                            <p>
-                              $
-                              {cart.cart.productos.reduce(
-                                (total, n) => total + n.item.precio * n.qy,
-                                0
-                              )}
-                            </p>
-                          </Grid>
-                        </Grid>
-
-                        <p className={classes.colorRed}>
-                          COMPRA EXPRESS: Aplica únicamente si todos los
-                          productos del carrito pertenecen a dicha categoría.
+                    <Grid
+                      container
+                      justify="center"
+                      className={classes.boxCompra}
+                    >
+                      <p className={classes.titleCompra}>RESUMEN DE COMPRA</p>
+                    </Grid>
+                    <Grid container spacing={1}>
+                      <Grid item xs={8} sm={8}>
+                        <p className={classes.titleCompraDetalle}>TOTAL</p>
+                      </Grid>
+                      <Grid item xs={4} sm={4}>
+                        <p className={classes.titleCompraDetalle}>
+                          $
+                          {cart.cart.productos.reduce(
+                            (total, n) => total + n.item.precio * n.qy,
+                            0
+                          )}
                         </p>
+                      </Grid>
+                    </Grid>
+                    <Grid container justify="center">
+                      <NavLink
+                        to="/checkout"
+                        style={{ textDecoration: "none" }}
+                      >
                         <Button
                           variant="contained"
                           className={classes.colorButton}
-                          onClick={() => enviarOrder()}
                         >
-                          FINALIZAR PAGO {">"}
+                          Comprar
                         </Button>
-                      </div>
+                      </NavLink>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -235,26 +251,24 @@ export default function Cart() {
             <Container className={classes.main}>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
-                  <h2 style={{ display: "inline" }}>Mi Carrito </h2>
-                  <p style={{ display: "inline", fontSize: "12px" }}>
-                    0 Productos
-                  </p>
-                  <p style={{ fontSize: "12px" }}>
-                    <NavLink to="/" style={{ color: "blue" }}>
+                  <h2 className={classes.titleMain}>Mi Carrito </h2>
+                  <p className={classes.titleParrafo}>0 Productos</p>
+                  <p>
+                    <NavLink to="/" className={classes.navLink}>
                       Seguir Comprando
                     </NavLink>
                   </p>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <p style={{ float: "right" }}>
+                  <p className={classes.parrafoTelefono}>
                     ¿Necesitás ayuda? 0810-888-3398
                   </p>
                 </Grid>
               </Grid>
               <Grid container justify="center">
-                <LocalMallIcon style={{ fontSize: "40px" }} />
+                <LocalMallIcon className={classes.iconoCarrito} />
               </Grid>
-              <Grid container justify="center" className={classes.iconoCarrito}>
+              <Grid container justify="center">
                 <Typography variant="h4" gutterBottom>
                   Tu carrito está vacío.
                 </Typography>

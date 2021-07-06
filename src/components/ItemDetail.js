@@ -103,6 +103,7 @@ export default function ItemDetail({
         <Grid item xs={12} sm={6}>
           <h1 className={classes.title}>{name}</h1>
           <p className={classes.parrafoItem}>Item No. {id}</p>
+          <p className={classes.parrafoItem}>Stock {id}</p>
           <Typography variant="h4" gutterBottom className={classes.title}>
             ${precio}
           </Typography>
@@ -110,7 +111,7 @@ export default function ItemDetail({
             {cant ? (
               <NavLink to="/cart" className={classes.NavLink}>
                 <Button variant="contained" color="primary">
-                  Terminar mi compra
+                  Ver carrito
                 </Button>
               </NavLink>
             ) : (

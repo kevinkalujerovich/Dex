@@ -180,13 +180,17 @@ export default function ItemListContainer() {
                   >
                     FILTRÁ TU BÚSQUEDA POR:
                   </Typography>
-                  <FormControl className={classes.formControl}>
-                    <InputLabel id="demo-simple-select-label">
+                  <FormControl
+                    variant="outlined"
+                    className={classes.formControl}
+                  >
+                    <InputLabel id="demo-simple-select-outlined-label">
                       Ordenar por
                     </InputLabel>
                     <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
+                      labelId="demo-simple-select-outlined-label"
+                      id="demo-simple-select-outlined"
+                      label="seleccionar provincia"
                       value={valueSelect}
                       onChange={handleChange}
                     >

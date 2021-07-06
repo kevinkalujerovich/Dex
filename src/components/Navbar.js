@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Typography, Link } from "@material-ui/core";
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import CartWidget from "./CartWidget";
 import FavoriteCart from "./FavoriteCart";
 import { Box, Grid } from "@material-ui/core";
@@ -28,16 +28,11 @@ const useStyles = makeStyles((theme) => ({
   },
   navLink: {
     textDecoration: "none",
-  },
-  linkCategoria: {
     color: "black",
     fontWeight: "bold",
     marginLeft: 10,
     marginRight: 10,
     fontSize: 18,
-    "&:hover": {
-      textDecoration: "none",
-    },
   },
   navbarCategorias: {
     borderBottomColor: "black",
@@ -74,7 +69,7 @@ export default function Navbar() {
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
               <NavLink to="/">
-                <img src={logo} alt="imagen de logo de tienda" width="150px" />
+                <img src={logo} alt="imagen de logo de tienda" width="80px" />
               </NavLink>
             </Typography>
             <NavLink to="/cart" className={classes.iconosNav}>
@@ -89,9 +84,7 @@ export default function Navbar() {
           <Toolbar variant="dense">
             {categorias.map((x, index) => (
               <NavLink to={x.link} key={index} className={classes.navLink}>
-                <Typography variant="h6">
-                  <Link className={classes.linkCategoria}>{x.text}</Link>
-                </Typography>
+                {x.text}
               </NavLink>
             ))}
           </Toolbar>
