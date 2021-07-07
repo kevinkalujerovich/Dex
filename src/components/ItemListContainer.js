@@ -139,8 +139,8 @@ export default function ItemListContainer() {
               <Typography variant="h4" gutterBottom>
                 Los más vendidos
               </Typography>
-              <Grid container spacing={10}>
-                <ItemList array={items} />
+              <Grid container spacing={1}>
+                <ItemList array={items} col={3} />
               </Grid>
             </>
           ) : (
@@ -242,8 +242,8 @@ export default function ItemListContainer() {
                 </>
               </Grid>
               <Grid item xs={12} sm={10}>
-                <Grid container spacing={6}>
-                  <ItemList array={items} />
+                <Grid container spacing={1}>
+                  <ItemList array={items} col={3} />
                 </Grid>
               </Grid>
             </Grid>

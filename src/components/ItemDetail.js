@@ -97,7 +97,7 @@ export default function ItemDetail({
   return (
     <>
       <Grid container spacing={3} className={classes.main}>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={6} container justifyContent="center">
           <img src={img} alt="imagen de producto" width="70%" heigth="70%" />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -107,17 +107,15 @@ export default function ItemDetail({
           <Typography variant="h4" gutterBottom className={classes.title}>
             ${precio}
           </Typography>
-          <Box mt={6}>
-            {cant ? (
-              <NavLink to="/cart" className={classes.NavLink}>
-                <Button variant="contained" color="primary">
-                  Ver carrito
-                </Button>
-              </NavLink>
-            ) : (
-              <ItemCount stock={10} initial={1} funcion={onAdd} />
-            )}
-          </Box>
+          {cant ? (
+            <NavLink to="/cart" className={classes.NavLink}>
+              <Button variant="contained" color="primary">
+                Ver carrito
+              </Button>
+            </NavLink>
+          ) : (
+            <ItemCount stock={10} initial={1} funcion={onAdd} />
+          )}
           <Box mt={6}>
             Compartilo vía
             <br />
@@ -164,7 +162,7 @@ export default function ItemDetail({
               <span className={classes.parrafo}>Marca: </span> {marca}
             </p>
           </Grid>
-          <Grid container spacing={10} className={classes.mainDescription}>
+          <Grid container spacing={1} className={classes.mainDescription}>
             <Container>
               <h2 className={classes.title}>Recomendados para vos</h2>
             </Container>
@@ -173,7 +171,9 @@ export default function ItemDetail({
                 <CircularProgress />
               </Grid>
             ) : (
-              <ItemList array={items} />
+              <Grid container spacing={1}>
+                <ItemList array={items} col={3} />
+              </Grid>
             )}
           </Grid>
         </Grid>

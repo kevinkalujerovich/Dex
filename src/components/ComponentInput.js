@@ -19,7 +19,6 @@ export default function ComponentInput({
   const [leyenda, setLeyenda] = useState("");
   const onChange = (e) => {
     cambiarEstado({ ...estado, campo: e.target.value });
-    console.log(estado.validar);
   };
   const validar = () => {
     if (expresion.test(estado.campo)) {

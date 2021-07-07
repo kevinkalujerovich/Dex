@@ -4,17 +4,30 @@ import CardContent from "@material-ui/core/CardContent";
 import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { Grid } from "@material-ui/core";
+import { CardActions, CardMedia } from "@material-ui/core";
 const useStyles = makeStyles({
   title: {
     fontSize: 14,
   },
   name: {
-    fontSize: 12,
+    fontSize: 16,
   },
-  cardMain: {
-    height: 340,
-    width: 250,
+  root: {
+    width: "100%",
+    maxHeight: 1050,
+  },
+  content: {
+    paddingBottom: 0,
+    paddingTop: 0,
+    height: 80,
+  },
+  cardActions: {
+    paddingTop: 0,
+    paddingLeft: 15,
+  },
+  precio: {
+    fontWeight: "bold",
+    fontSize: 20,
   },
 });
 export default function Item({ name, precio, img, id, category }) {
@@ -27,8 +40,15 @@ export default function Item({ name, precio, img, id, category }) {
         textDecoration: "none",
       }}
     >
-      <Card className={classes.cardMain}>
-        <CardContent>
+      <Card className={classes.root}>
+        <CardMedia
+          component="img"
+          alt="Contemplative Reptile"
+          height="100%"
+          image={img}
+          title="Contemplative Reptile"
+        />
+        <CardContent className={classes.content}>
           <Typography
             className={classes.title}
             color="textSecondary"
@@ -36,12 +56,16 @@ export default function Item({ name, precio, img, id, category }) {
           >
             {category}
           </Typography>
-          <Grid container justify="center">
-            <img src={img} width="80%" height="80%" alt="imagen de producto" />
-          </Grid>
-          <p className={classes.title}>{name}</p>
-          <p className="card_precio">${precio}</p>
+
+          <Typography variant="body2" gutterBottom className={classes.name}>
+            {name}
+          </Typography>
         </CardContent>
+        <CardActions className={classes.cardActions}>
+          <Typography gutterBottom variant="body1" className={classes.precio}>
+            ${precio}
+          </Typography>
+        </CardActions>
       </Card>
     </NavLink>
   );

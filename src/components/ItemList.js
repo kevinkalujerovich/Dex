@@ -2,12 +2,12 @@ import Item from "./Item";
 import React from "react";
 import { Grid } from "@material-ui/core";
 
-export default function ItemList({ array }) {
+export default function ItemList({ array, col }) {
   return (
     <>
       {array.map((item) => {
         return (
-          <Grid item xs={12} sm={3} key={item.id}>
+          <Grid item xs={6} sm={col} key={item.id}>
             <Item
               name={item.name}
               img={item.img}

@@ -13,39 +13,77 @@ const useStyles = makeStyles({
   main: {
     marginTop: 100,
   },
+  img: {
+    width: "100%",
+    height: "100%",
+  },
 });
 export default function Main() {
   const classes = useStyles();
   return (
     <Container className={classes.main}>
-      <img src={imagen_principal} width="100%" alt="imagen de publicidad" />
-      <Grid container spacing={1} className={classes.main}>
-        <Grid item xs={12} sm={4} container justify="center">
+      <img
+        src={imagen_principal}
+        className={classes.img}
+        alt="imagen de publicidad"
+      />
+      <Grid
+        spacing={1}
+        className={classes.main}
+        container
+        justifyContent="center"
+      >
+        <Grid item xs={12} sm={4}>
           <NavLink to="/">
-            <img src={header_promocion} alt="imagen de ropa" width="100%" />
+            <img
+              src={header_promocion}
+              alt="imagen de ropa"
+              className={classes.img}
+            />
           </NavLink>
         </Grid>
-        <Grid item xs={12} sm={4} container justify="center">
+        <Grid item xs={12} sm={4}>
           <NavLink to="/">
-            <img src={header_promocion_2} alt="imagen de ropa" width="100%" />
+            <img
+              src={header_promocion_2}
+              alt="imagen de ropa"
+              className={classes.img}
+            />
           </NavLink>
         </Grid>
-        <Grid item xs={12} sm={4} container justify="center">
+        <Grid item xs={12} sm={4}>
           <NavLink to="/">
-            <img src={header_promocion_3} alt="imagen de ropa" width="100%" />
+            <img
+              src={header_promocion_3}
+              alt="imagen de ropa"
+              className={classes.img}
+            />
           </NavLink>
         </Grid>
       </Grid>
       <ItemListContainer />
-      <Grid container spacing={5} className={classes.main}>
-        <Grid item xs={12} sm={6} container justify="center">
+      <Grid
+        container
+        spacing={5}
+        className={classes.main}
+        justifyContent="center"
+      >
+        <Grid item xs={12} sm={6}>
           <NavLink to="/">
-            <img src={footer_img} alt="imagen de ropa" width="100%" />
+            <img
+              src={footer_img}
+              alt="imagen de ropa"
+              className={classes.img}
+            />
           </NavLink>
         </Grid>
-        <Grid item xs={12} sm={6} container justify="center">
+        <Grid item xs={12} sm={6} container>
           <NavLink to="/">
-            <img src={footer_img_2} alt="imagen de ropa" width="100%" />
+            <img
+              src={footer_img_2}
+              alt="imagen de ropa"
+              className={classes.img}
+            />
           </NavLink>
         </Grid>
       </Grid>
