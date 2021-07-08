@@ -167,7 +167,7 @@ export default function ItemDetail({
               <h2 className={classes.title}>Recomendados para vos</h2>
             </Container>
             {loading ? (
-              <Grid container justify="center">
+              <Grid container justifyContent="center">
                 <CircularProgress />
               </Grid>
             ) : (

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ItemListContainer from "./ItemListContainer";
 import { Container, Grid } from "@material-ui/core";
 import imagen_principal from "../img/imagen_principal.png";
@@ -9,8 +9,6 @@ import header_promocion from "../img/header_promocion.png";
 import header_promocion_2 from "../img/header_promocion_2.png";
 import header_promocion_3 from "../img/header_promocion_3.png";
 import { makeStyles } from "@material-ui/core/styles";
-import { useParams } from "react-router-dom";
-import { getFirestore } from "../firebase/firebase";
 const useStyles = makeStyles({
   main: {
     marginTop: 100,
@@ -22,7 +20,6 @@ const useStyles = makeStyles({
 });
 export default function Main() {
   const classes = useStyles();
-  const { Id } = useParams();
 
   return (
     <Container className={classes.main}>

@@ -6,13 +6,13 @@ import {
   Button,
   Typography,
   IconButton,
+  CardMedia,
 } from "@material-ui/core";
 import { useCart } from "../contexts/CartContext";
 import { makeStyles } from "@material-ui/core/styles";
 import { NavLink } from "react-router-dom";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
 import DeleteIcon from "@material-ui/icons/Delete";
-import PhotoCamera from "@material-ui/icons/PhotoCamera";
 const useStyles = makeStyles({
   main: {
     marginTop: 50,
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
   card: {
     marginBottom: 10,
-    height: 100,
+    height: 120,
   },
   colorRed: {
     color: "red",
@@ -92,7 +92,6 @@ const useStyles = makeStyles({
   btnRemove: {
     color: "black",
   },
-  imgCard: {},
 });
 export default function Cart() {
   const classes = useStyles();
@@ -123,7 +122,10 @@ export default function Cart() {
                     " "}
                   Productos
                 </Typography>
-                <Typography className={classes.typographyNav}>
+                <Typography
+                  variant="subtitle1"
+                  className={classes.typographyNav}
+                >
                   <NavLink to="/" className={classes.navLink}>
                     Seguir Comprando
                   </NavLink>
@@ -138,50 +140,96 @@ export default function Cart() {
                 {cart.cart.productos.map((x, i) => {
                   return (
                     <Card className={classes.card} key={i}>
-                      <CardContent>
-                        <Grid container spacing={3}>
-                          <Grid item xs={12} sm={2} container justify="center">
-                            <img
-                              className={classes.imgCard}
-                              src={x.item.img}
-                              width="80%"
-                              height="80%"
-                              alt="imagen de producto"
+                      <Grid container spacing={3}>
+                        <Grid
+                          item
+                          xs={12}
+                          sm={2}
+                          container
+                          justifyContent="center"
+                        >
+                          <CardContent>
+                            <CardMedia
+                              component="img"
+                              alt="Contemplative Reptile"
+                              height="100%"
+                              image={x.item.img}
+                              title="Contemplative Reptile"
                             />
-                          </Grid>
-                          <Grid item xs={12} sm={4}>
-                            <Typography className={classes.titleCard}>
+                          </CardContent>
+                        </Grid>
+                        <Grid item xs={6} sm={4}>
+                          <CardContent>
+                            <Typography
+                              variant="subtitle1"
+                              className={classes.titleCard}
+                            >
                               {x.item.name}
                             </Typography>
-                            <Typography style={{ fontSize: "15px" }}>
+                            <Typography
+                              variant="subtitle1"
+                              style={{ fontSize: "15px" }}
+                            >
                               Item No.{x.item.id}
                             </Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={1}>
-                            <Typography className={classes.titleCardDetalles}>
+                          </CardContent>
+                        </Grid>
+                        <Grid item xs={6} sm={1}>
+                          <CardContent>
+                            <Typography
+                              variant="subtitle1"
+                              className={classes.titleCardDetalles}
+                            >
                               Cantidad
                             </Typography>
-                            <Typography className={classes.titleCardCantidad}>
+                            <Typography
+                              variant="subtitle1"
+                              className={classes.titleCardCantidad}
+                            >
                               {x.qy}
                             </Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={2}>
-                            <Typography className={classes.titleCardDetalles}>
+                          </CardContent>
+                        </Grid>
+                        <Grid item xs={12} sm={2}>
+                          <CardContent>
+                            <Typography
+                              variant="subtitle1"
+                              className={classes.titleCardDetalles}
+                            >
                               Precio
                             </Typography>
-                            <Typography className={classes.titleCardCantidad}>
+                            <Typography
+                              variant="subtitle1"
+                              className={classes.titleCardCantidad}
+                            >
                               ${x.item.precio}
                             </Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={2}>
-                            <Typography className={classes.titleCardDetalles}>
+                          </CardContent>
+                        </Grid>
+                        <Grid item xs={12} sm={2}>
+                          <CardContent>
+                            <Typography
+                              variant="subtitle1"
+                              className={classes.titleCardDetalles}
+                            >
                               Subtotal
                             </Typography>
-                            <Typography className={classes.titleCardCantidad}>
+                            <Typography
+                              variant="subtitle1"
+                              className={classes.titleCardCantidad}
+                            >
                               ${x.item.precio * x.qy}
                             </Typography>
-                          </Grid>
-                          <Grid item xs={1} sm={1} container justify="center">
+                          </CardContent>
+                        </Grid>
+                        <Grid
+                          item
+                          xs={1}
+                          sm={1}
+                          container
+                          justifyContent="center"
+                        >
+                          <CardContent>
                             <label htmlFor="icon-button-file">
                               <IconButton
                                 aria-label="upload picture"
@@ -191,15 +239,19 @@ export default function Cart() {
                                 <DeleteIcon className={classes.btnRemove} />
                               </IconButton>
                             </label>
-                          </Grid>
+                          </CardContent>
                         </Grid>
-                      </CardContent>
+                      </Grid>
                     </Card>
                   );
                 })}
               </Grid>
               <Grid item xs={12} sm={3}>
-                <Grid container justify="center" className={classes.boxCompra}>
+                <Grid
+                  container
+                  justifyContent="center"
+                  className={classes.boxCompra}
+                >
                   <Typography
                     variant="subtitle2"
                     className={classes.titleCompra}
@@ -210,7 +262,7 @@ export default function Cart() {
                 <Grid container spacing={1}>
                   <Grid item xs={8} sm={8}>
                     <Typography
-                      variant="subtitule1"
+                      variant="subtitle1"
                       className={classes.titleCompraDetalle}
                     >
                       TOTAL
@@ -218,7 +270,7 @@ export default function Cart() {
                   </Grid>
                   <Grid item xs={4} sm={4}>
                     <Typography
-                      variant="subtitule1"
+                      variant="subtitle1"
                       className={classes.titleCompraDetalle}
                     >
                       $
@@ -229,7 +281,7 @@ export default function Cart() {
                     </Typography>
                   </Grid>
                 </Grid>
-                <Grid container justify="center">
+                <Grid container justifyContent="center">
                   <NavLink to="/checkout" className={classes.navBtnComprar}>
                     <Button variant="contained" className={classes.btnComprar}>
                       Comprar
@@ -255,16 +307,16 @@ export default function Cart() {
               ¿Necesitás ayuda? 0810-888-3398
             </Typography>
           </Grid>
-          <Grid container justify="center">
+          <Grid container justifyContent="center">
             <LocalMallIcon className={classes.iconoCarrito} />
           </Grid>
-          <Grid container justify="center">
+          <Grid container justifyContent="center">
             <Typography variant="h4" gutterBottom>
               Tu carrito está vacío.
             </Typography>
           </Grid>
-          <Grid container justify="center">
-            <Typography>
+          <Grid container justifyContent="center">
+            <Typography variant="subtitle1">
               <NavLink to="/" className={classes.navLink}>
                 Seguir Comprando
               </NavLink>

@@ -58,7 +58,11 @@ export default function Navbar() {
     <>
       <div>
         <AppBar position="static" className={classes.navbar}>
-          <Grid container justify="center" className={classes.mensajeNav}>
+          <Grid
+            container
+            justifyContent="center"
+            className={classes.mensajeNav}
+          >
             <Typography
               variant="subtitle1"
               gutterBottom

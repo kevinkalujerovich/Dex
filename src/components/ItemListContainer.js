@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  boxFiltros: {
+    marginBottom: 30,
+  },
 }));
 const precios = [
   { precio: "$2000 - $4999", min: 2000, max: 4999 },
@@ -129,7 +132,7 @@ export default function ItemListContainer() {
   return (
     <Container className={classes.main}>
       {loading ? (
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <CircularProgress />
         </Grid>
       ) : (
@@ -199,46 +202,54 @@ export default function ItemListContainer() {
                       <MenuItem value={"max"}>Precio mas alto</MenuItem>
                     </Select>
                   </FormControl>
-                  <Typography
-                    variant="subtitle2"
-                    gutterBottom
-                    className={classes.titleMarca}
-                  >
-                    MARCA
-                  </Typography>
-                  {[...new Set(aux.map((x) => x.marca))].map((x, i) => (
-                    <Grid key={i}>
-                      <Link
-                        component="button"
-                        variant="body2"
-                        onClick={() => filtrarMarca(x)}
-                        className={classes.marcaLista}
-                        style={{ textDecoration: "none" }}
+                  <Grid container spacing={1} className={classes.boxFiltros}>
+                    <Grid item xs={6} sm={12}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        className={classes.titleMarca}
                       >
-                        {x}
-                      </Link>
+                        MARCA
+                      </Typography>
+                      {[...new Set(aux.map((x) => x.marca))].map((x, i) => (
+                        <Grid key={i}>
+                          <Link
+                            component="button"
+                            variant="body2"
+                            onClick={() => filtrarMarca(x)}
+                            className={classes.marcaLista}
+                            style={{ textDecoration: "none" }}
+                          >
+                            {x}
+                          </Link>
+                        </Grid>
+                      ))}
                     </Grid>
-                  ))}
-                  <Typography
-                    variant="subtitle2"
-                    gutterBottom
-                    className={classes.titleMarca}
-                  >
-                    PRECIO
-                  </Typography>
-                  {precios.map((x, i) => (
-                    <Grid key={i}>
-                      <Link
-                        component="button"
-                        variant="body2"
-                        onClick={() => filtrarPrecio(x.precio, x.min, x.max)}
-                        className={classes.marcaLista}
-                        style={{ textDecoration: "none" }}
+                    <Grid item xs={6} sm={12}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        className={classes.titleMarca}
                       >
-                        {x.precio}
-                      </Link>
+                        PRECIO
+                      </Typography>
+                      {precios.map((x, i) => (
+                        <Grid key={i}>
+                          <Link
+                            component="button"
+                            variant="body2"
+                            onClick={() =>
+                              filtrarPrecio(x.precio, x.min, x.max)
+                            }
+                            className={classes.marcaLista}
+                            style={{ textDecoration: "none" }}
+                          >
+                            {x.precio}
+                          </Link>
+                        </Grid>
+                      ))}
                     </Grid>
-                  ))}
+                  </Grid>
                 </>
               </Grid>
               <Grid item xs={12} sm={10}>
