@@ -102,7 +102,7 @@ export default function IndexLinks() {
             <Typography variant="caption" display="block" gutterBottom>
               © Copyright - 2017 - 2021 www.dex-react.com.ar, TODOS LOS DERECHOS
               RESERVADOS. Las fotos contenidas en este site, el logotipo y las
-              marcas son propiedad de www.ecommerce-react.com.ar y/o de sus
+              marcas son propiedad de www.dex-react.com.ar y/o de sus
               respectivos titulares. Está prohibida la reproducción total o
               parcial, sin la expresa autorización de la administradora de la
               tienda virtual. Dexter, empresa perteneciente al grupo DABRA S.A.

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ItemListContainer from "./ItemListContainer";
 import { Container, Grid } from "@material-ui/core";
 import imagen_principal from "../img/imagen_principal.png";
@@ -9,6 +9,8 @@ import header_promocion from "../img/header_promocion.png";
 import header_promocion_2 from "../img/header_promocion_2.png";
 import header_promocion_3 from "../img/header_promocion_3.png";
 import { makeStyles } from "@material-ui/core/styles";
+import { useParams } from "react-router-dom";
+import { getFirestore } from "../firebase/firebase";
 const useStyles = makeStyles({
   main: {
     marginTop: 100,
@@ -20,6 +22,8 @@ const useStyles = makeStyles({
 });
 export default function Main() {
   const classes = useStyles();
+  const { Id } = useParams();
+
   return (
     <Container className={classes.main}>
       <img
@@ -34,7 +38,7 @@ export default function Main() {
         justifyContent="center"
       >
         <Grid item xs={12} sm={4}>
-          <NavLink to="/">
+          <NavLink to="/item/16">
             <img
               src={header_promocion}
               alt="imagen de ropa"
@@ -43,7 +47,7 @@ export default function Main() {
           </NavLink>
         </Grid>
         <Grid item xs={12} sm={4}>
-          <NavLink to="/">
+          <NavLink to="/item/17">
             <img
               src={header_promocion_2}
               alt="imagen de ropa"
@@ -52,7 +56,7 @@ export default function Main() {
           </NavLink>
         </Grid>
         <Grid item xs={12} sm={4}>
-          <NavLink to="/">
+          <NavLink to="item/18">
             <img
               src={header_promocion_3}
               alt="imagen de ropa"
@@ -69,7 +73,7 @@ export default function Main() {
         justifyContent="center"
       >
         <Grid item xs={12} sm={6}>
-          <NavLink to="/">
+          <NavLink to="/item/19">
             <img
               src={footer_img}
               alt="imagen de ropa"
@@ -78,7 +82,7 @@ export default function Main() {
           </NavLink>
         </Grid>
         <Grid item xs={12} sm={6} container>
-          <NavLink to="/">
+          <NavLink to="/item/20">
             <img
               src={footer_img_2}
               alt="imagen de ropa"

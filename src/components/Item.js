@@ -21,6 +21,10 @@ const useStyles = makeStyles({
     paddingTop: 0,
     height: 80,
   },
+  contentCategory: {
+    paddingBottom: 0,
+    paddingTop: 2,
+  },
   cardActions: {
     paddingTop: 0,
     paddingLeft: 15,
@@ -41,6 +45,15 @@ export default function Item({ name, precio, img, id, category }) {
       }}
     >
       <Card className={classes.root}>
+        <CardContent className={classes.contentCategory}>
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            {category}
+          </Typography>
+        </CardContent>
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
@@ -49,14 +62,6 @@ export default function Item({ name, precio, img, id, category }) {
           title="Contemplative Reptile"
         />
         <CardContent className={classes.content}>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
-          >
-            {category}
-          </Typography>
-
           <Typography variant="body2" gutterBottom className={classes.name}>
             {name}
           </Typography>

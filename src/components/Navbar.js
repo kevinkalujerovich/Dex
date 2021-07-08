@@ -48,6 +48,7 @@ const categorias = [
   { link: "/category/Camisetas", text: "Camisetas" },
   { link: "/category/Botines", text: "Botines" },
   { link: "/category/Remeras", text: "Remeras" },
+  { link: "/category/Zapatillas", text: "Zapatillas" },
 ];
 
 export default function Navbar() {
