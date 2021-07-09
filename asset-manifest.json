@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/Dex-React/static/css/main.2ae47eeb.chunk.css",
+    "main.js": "/Dex-React/static/js/main.ec4b3452.chunk.js",
+    "main.js.map": "/Dex-React/static/js/main.ec4b3452.chunk.js.map",
+    "runtime-main.js": "/Dex-React/static/js/runtime-main.39f4e443.js",
+    "runtime-main.js.map": "/Dex-React/static/js/runtime-main.39f4e443.js.map",
+    "static/js/2.4e1b5179.chunk.js": "/Dex-React/static/js/2.4e1b5179.chunk.js",
+    "static/js/2.4e1b5179.chunk.js.map": "/Dex-React/static/js/2.4e1b5179.chunk.js.map",
+    "static/js/3.f5e97b58.chunk.js": "/Dex-React/static/js/3.f5e97b58.chunk.js",
+    "static/js/3.f5e97b58.chunk.js.map": "/Dex-React/static/js/3.f5e97b58.chunk.js.map",
+    "index.html": "/Dex-React/index.html",
+    "static/css/main.2ae47eeb.chunk.css.map": "/Dex-React/static/css/main.2ae47eeb.chunk.css.map",
+    "static/js/2.4e1b5179.chunk.js.LICENSE.txt": "/Dex-React/static/js/2.4e1b5179.chunk.js.LICENSE.txt",
+    "static/media/footer_img.46d875b1.png": "/Dex-React/static/media/footer_img.46d875b1.png",
+    "static/media/footer_img_2.c723171f.png": "/Dex-React/static/media/footer_img_2.c723171f.png",
+    "static/media/header_promocion.4dfe6bb7.png": "/Dex-React/static/media/header_promocion.4dfe6bb7.png",
+    "static/media/header_promocion_2.bbcdd9a4.png": "/Dex-React/static/media/header_promocion_2.bbcdd9a4.png",
+    "static/media/header_promocion_3.1dad4c28.png": "/Dex-React/static/media/header_promocion_3.1dad4c28.png",
+    "static/media/imagen_principal.93fceb9f.png": "/Dex-React/static/media/imagen_principal.93fceb9f.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.39f4e443.js",
+    "static/js/2.4e1b5179.chunk.js",
+    "static/css/main.2ae47eeb.chunk.css",
+    "static/js/main.ec4b3452.chunk.js"
+  ]
+}
