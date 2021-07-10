@@ -13,6 +13,8 @@ import { NavLink } from "react-router-dom";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import ItemList from "./ItemList";
+import { IconButton } from "@material-ui/core";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import { getFirestore } from "../firebase/firebase";
 import { makeStyles } from "@material-ui/core/styles";
 import InstagramIcon from "@material-ui/icons/Instagram";
@@ -106,54 +108,56 @@ export default function ItemDetail({
 
   return (
     <>
-      <Grid container spacing={3} className={classes.main}>
-        <Grid item xs={12} sm={6} container justifyContent="center">
-          <img src={img} alt="imagen de producto" width="70%" heigth="70%" />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Typography variant="h1" className={classes.title}>
-            {name}
-          </Typography>
-          <Typography variant="subtitle1" className={classes.parrafoItem}>
-            Item No. {id}
-          </Typography>
-          <Typography variant="subtitle2" className={classes.parrafoItem}>
-            Stock {id}
-          </Typography>
-          <Typography variant="h1" gutterBottom className={classes.title}>
-            ${precio}
-          </Typography>
-          {cant ? (
-            <NavLink to="/cart" className={classes.NavLink}>
-              <Button variant="contained" color="primary">
-                Ver carrito
-              </Button>
-            </NavLink>
-          ) : (
-            <ItemCount stock={10} initial={1} funcion={onAdd} />
-          )}
-          <Grid>
-            <Typography variant="subtitle2" className={classes.parrafoRedes}>
-              Compartilo vía
+      <Container className={classes.mainDescription}>
+        <Grid container spacing={3} className={classes.main}>
+          <Grid item xs={12} sm={6} container justifyContent="center">
+            <img src={img} alt="imagen de producto" width="70%" heigth="70%" />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="h1" className={classes.title}>
+              {name}
             </Typography>
-            <Link href="href=https://twitter.com/Dex-React">
-              <TwitterIcon className={classes.iconoTwitter} />
-            </Link>
-            <Link href="href=https://twitter.com/Dex-React">
-              <FacebookIcon className={classes.iconoFacebook} />
-            </Link>
-            <Link href="href=https://twitter.com/Dex-React">
-              <InstagramIcon className={classes.iconoInstagram} />
-            </Link>
+            <Typography variant="subtitle1" className={classes.parrafoItem}>
+              Item No. {id}
+            </Typography>
+            <Typography variant="subtitle2" className={classes.parrafoItem}>
+              Stock {id}
+            </Typography>
+            <Typography variant="h1" gutterBottom className={classes.title}>
+              ${precio}
+            </Typography>
+            {cant ? (
+              <NavLink to="/cart" className={classes.NavLink}>
+                <Button variant="contained" color="primary">
+                  Ver carrito
+                </Button>
+              </NavLink>
+            ) : (
+              <ItemCount stock={10} initial={1} funcion={onAdd} />
+            )}
+            <Grid>
+              <Typography variant="subtitle2" className={classes.parrafoRedes}>
+                Compartilo vía
+              </Typography>
+              <Link href="href=https://twitter.com/Dex-React">
+                <TwitterIcon className={classes.iconoTwitter} />
+              </Link>
+              <Link href="href=https://twitter.com/Dex-React">
+                <FacebookIcon className={classes.iconoFacebook} />
+              </Link>
+              <Link href="href=https://twitter.com/Dex-React">
+                <InstagramIcon className={classes.iconoInstagram} />
+              </Link>
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      </Container>
       <Container className={classes.mainDescription}>
         <Grid>
           <Typography varian="subtitle1">
-            <span className={classes.parrafo}>Descripción: </span>
-            {description}
+            <span className={classes.parrafo}>Descripción:</span>
           </Typography>
+          <Typography varian="subtitle1">{description}</Typography>
         </Grid>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>

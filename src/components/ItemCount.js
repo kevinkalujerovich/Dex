@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
-import { Grid } from "@material-ui/core";
+import { Grid, IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 const useStyles = makeStyles({
@@ -20,8 +20,7 @@ const useStyles = makeStyles({
     fontSize: 20,
   },
   favoriteIcon: {
-    color: "black",
-    fontSize: 32,
+    fontSize: 24,
   },
   btnGroup: {
     marginBottom: 10,
@@ -70,9 +69,15 @@ export default function ItemCount({ initial, stock, funcion }) {
           </Button>
         </Grid>
         <Grid item sm={4}>
-          <Button className={classes.favoriteFab}>
-            <FavoriteBorderIcon className={classes.favoriteIcon} />
-          </Button>
+          <label htmlFor="icon-button-file">
+            <IconButton
+              aria-label="upload picture"
+              component="span"
+              className={classes.prueba}
+            >
+              <FavoriteBorderIcon className={classes.favoriteIcon} />
+            </IconButton>
+          </label>
         </Grid>
       </Grid>
     </>

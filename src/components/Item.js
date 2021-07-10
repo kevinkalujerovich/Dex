@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
 import { IconButton, Grid } from "@material-ui/core";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import Card from "@material-ui/core/Card";
@@ -29,7 +28,7 @@ const useStyles = makeStyles({
     paddingTop: 2,
   },
   cardActions: {
-    paddingTop: 10,
+    paddingTop: 0,
     paddingBottom: 0,
     paddingLeft: 15,
   },
@@ -72,9 +71,22 @@ export default function Item({ name, precio, img, id, category }) {
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Grid container spacing={1}>
-            <Typography gutterBottom variant="body1" className={classes.precio}>
-              ${precio}
-            </Typography>
+            <Grid item sm={9}>
+              <Typography
+                gutterBottom
+                variant="body1"
+                className={classes.precio}
+              >
+                ${precio}
+              </Typography>
+            </Grid>
+            <Grid item sm={3}>
+              <label htmlFor="icon-button-file">
+                <IconButton aria-label="upload picture" component="span">
+                  <FavoriteBorderIcon />
+                </IconButton>
+              </label>
+            </Grid>
           </Grid>
         </CardActions>
       </Card>
