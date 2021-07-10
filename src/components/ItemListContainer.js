@@ -21,10 +21,9 @@ const useStyles = makeStyles((theme) => ({
   titleMenu: {
     fontSize: 12,
     fontWeight: "bold",
-    marginBottom: 20,
+    marginBottom: 10,
   },
-  mainMenu: {
-    marginTop: 20,
+  btnEliminar: {
     marginBottom: 20,
     color: "red",
     fontWeight: "bold",
@@ -36,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
   },
   titleMarca: {
     fontWeight: "bold",
-    marginTop: 20,
   },
   marcaLista: {
     color: "gray",
@@ -45,7 +43,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
   },
   formControl: {
-    minWidth: 160,
+    width: 180,
+    marginBottom: 20,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -152,28 +151,38 @@ export default function ItemListContainer() {
                 <>
                   {mensaje && (
                     <>
-                      <Typography
-                        variant="body2"
-                        gutterBottom
-                        className={classes.titleMenu}
-                      >
-                        ESTÁS VIENDO:
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        gutterBottom
-                        className={classes.boxSelect}
-                      >
-                        <span className={classes.filtroMensaje}>{mensaje}</span>
-                      </Typography>
-                      <Link
-                        component="button"
-                        variant="body2"
-                        onClick={reset}
-                        className={classes.mainMenu}
-                      >
-                        Eliminar filtros
-                      </Link>
+                      <Grid>
+                        <Typography
+                          variant="body2"
+                          gutterBottom
+                          className={classes.titleMenu}
+                        >
+                          ESTÁS VIENDO:
+                        </Typography>
+                      </Grid>
+                      <Grid container spacing={1}>
+                        <Grid item xs={8} sm={12}>
+                          <Typography
+                            variant="body2"
+                            gutterBottom
+                            className={classes.eleccionFiltro}
+                          >
+                            <span className={classes.filtroMensaje}>
+                              {mensaje}
+                            </span>
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={4} sm={12}>
+                          <Link
+                            component="button"
+                            variant="body2"
+                            onClick={reset}
+                            className={classes.btnEliminar}
+                          >
+                            Eliminar filtros
+                          </Link>
+                        </Grid>
+                      </Grid>
                     </>
                   )}
                   <Typography
@@ -183,25 +192,7 @@ export default function ItemListContainer() {
                   >
                     FILTRÁ TU BÚSQUEDA POR:
                   </Typography>
-                  <FormControl
-                    variant="outlined"
-                    className={classes.formControl}
-                  >
-                    <InputLabel id="demo-simple-select-outlined-label">
-                      Ordenar por
-                    </InputLabel>
-                    <Select
-                      labelId="demo-simple-select-outlined-label"
-                      id="demo-simple-select-outlined"
-                      label="seleccionar provincia"
-                      value={valueSelect}
-                      onChange={handleChange}
-                    >
-                      <MenuItem value={"original"}>Mas Relevantes</MenuItem>
-                      <MenuItem value={"min"}>Precio mas bajo</MenuItem>
-                      <MenuItem value={"max"}>Precio mas alto</MenuItem>
-                    </Select>
-                  </FormControl>
+
                   <Grid container spacing={1} className={classes.boxFiltros}>
                     <Grid item xs={6} sm={12}>
                       <Typography
@@ -253,6 +244,26 @@ export default function ItemListContainer() {
                 </>
               </Grid>
               <Grid item xs={12} sm={10}>
+                <FormControl
+                  variant="outlined"
+                  className={classes.formControl}
+                  size="small"
+                >
+                  <InputLabel id="demo-simple-select-outlined-label">
+                    Ordenar por
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-outlined-label"
+                    id="demo-simple-select-outlined"
+                    label="seleccionar provincia"
+                    value={valueSelect}
+                    onChange={handleChange}
+                  >
+                    <MenuItem value={"original"}>Mas Relevantes</MenuItem>
+                    <MenuItem value={"min"}>Precio mas bajo</MenuItem>
+                    <MenuItem value={"max"}>Precio mas alto</MenuItem>
+                  </Select>
+                </FormControl>
                 <Grid container spacing={1}>
                   <ItemList array={items} col={3} />
                 </Grid>
