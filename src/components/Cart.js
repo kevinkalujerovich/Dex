@@ -13,14 +13,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import { NavLink } from "react-router-dom";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
 import DeleteIcon from "@material-ui/icons/Delete";
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   main: {
     marginTop: 50,
     marginBottom: 350,
   },
   card: {
     marginBottom: 10,
-    height: 120,
   },
   colorRed: {
     color: "red",
@@ -92,7 +91,16 @@ const useStyles = makeStyles({
   btnRemove: {
     color: "black",
   },
-});
+  img: {
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
+  },
+  gridAlingItems: {
+    display: "flex",
+    alignItems: "center",
+  },
+}));
 export default function Cart() {
   const classes = useStyles();
   const cart = useCart();
@@ -109,7 +117,7 @@ export default function Cart() {
       {cart.cart.productos.length > 0 ? (
         <>
           <Container className={classes.main}>
-            <Grid container spacing={2}>
+            <Grid container spacing={1}>
               <Grid item xs={12} sm={9}>
                 <Typography variant="h5" className={classes.titleMain}>
                   Mi Carrito{" "}
@@ -143,22 +151,28 @@ export default function Cart() {
                       <Grid container spacing={3}>
                         <Grid
                           item
-                          xs={12}
+                          xs={4}
                           sm={2}
                           container
                           justifyContent="center"
+                          className={classes.gridAlingItems}
                         >
                           <CardContent>
                             <CardMedia
                               component="img"
                               alt="Contemplative Reptile"
-                              height="100%"
+                              className={classes.img}
                               image={x.item.img}
                               title="Contemplative Reptile"
                             />
                           </CardContent>
                         </Grid>
-                        <Grid item xs={6} sm={4}>
+                        <Grid
+                          item
+                          xs={8}
+                          sm={6}
+                          className={classes.gridAlingItems}
+                        >
                           <CardContent>
                             <Typography
                               variant="subtitle1"
@@ -174,7 +188,13 @@ export default function Cart() {
                             </Typography>
                           </CardContent>
                         </Grid>
-                        <Grid item xs={6} sm={1}>
+                        <Grid
+                          item
+                          xs={3}
+                          sm={1}
+                          justifyContent="center"
+                          className={classes.gridAlingItems}
+                        >
                           <CardContent>
                             <Typography
                               variant="subtitle1"
@@ -190,7 +210,14 @@ export default function Cart() {
                             </Typography>
                           </CardContent>
                         </Grid>
-                        <Grid item xs={12} sm={2}>
+                        <Grid
+                          item
+                          xs={3}
+                          sm={1}
+                          container
+                          justifyContent="center"
+                          className={classes.gridAlingItems}
+                        >
                           <CardContent>
                             <Typography
                               variant="subtitle1"
@@ -206,7 +233,13 @@ export default function Cart() {
                             </Typography>
                           </CardContent>
                         </Grid>
-                        <Grid item xs={12} sm={2}>
+                        <Grid
+                          item
+                          xs={3}
+                          sm={1}
+                          justifyContent="center"
+                          className={classes.gridAlingItems}
+                        >
                           <CardContent>
                             <Typography
                               variant="subtitle1"
@@ -228,6 +261,7 @@ export default function Cart() {
                           sm={1}
                           container
                           justifyContent="center"
+                          className={classes.gridAlingItems}
                         >
                           <CardContent>
                             <label htmlFor="icon-button-file">
