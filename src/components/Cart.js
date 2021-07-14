@@ -7,7 +7,13 @@ import {
   Typography,
   IconButton,
   CardMedia,
+  Link,
+  TextField,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from "@material-ui/core";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useCart } from "../contexts/CartContext";
 import { makeStyles } from "@material-ui/core/styles";
 import { NavLink } from "react-router-dom";
@@ -27,10 +33,11 @@ const useStyles = makeStyles((theme) => ({
   },
   btnComprar: {
     color: "white",
+    fontWeight: "bold",
     width: "100%",
-    backgroundColor: "#e31724",
+    backgroundColor: "#09ae85",
     "&:hover": {
-      backgroundColor: "#e31724",
+      backgroundColor: "#09ae85",
     },
   },
   navBtnComprar: {
@@ -75,14 +82,17 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     marginTop: 80,
   },
-  titleCompra: {
-    fontSize: 20,
+  titleTotal: {
+    fontSize: 25,
+    fontWeight: "bold",
   },
-  titleCompraDetalle: {
-    fontSize: 20,
+  titlePrecioTotal: {
+    fontSize: 25,
+    fontWeight: "bold",
+    float: "right",
   },
-  boxCompra: {
-    marginTop: 85,
+  titlePrecioSubtotal: {
+    float: "right",
   },
   textTelefono: {
     fontSize: 13,
@@ -99,6 +109,34 @@ const useStyles = makeStyles((theme) => ({
   gridAlingItems: {
     display: "flex",
     alignItems: "center",
+    paddingTop: 0,
+  },
+  contentCartDetalle: {
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: 0,
+    },
+  },
+  precioDetalle: {
+    float: "right",
+  },
+  subtotalDetalle: {
+    paddingBottom: 0,
+  },
+  input: {
+    width: "100%",
+    marginTop: 25,
+  },
+  title: {
+    fontWeight: "bold",
+  },
+  acordion: {
+    width: "100%",
+  },
+  acordionDetails: {
+    paddingBottom: 0,
+  },
+  titleAcordion: {
+    fontSize: 12,
   },
 }));
 export default function Cart() {
@@ -117,7 +155,7 @@ export default function Cart() {
       {cart.cart.productos.length > 0 ? (
         <>
           <Container className={classes.main}>
-            <Grid container spacing={1}>
+            <Grid container spacing={3}>
               <Grid item xs={12} sm={9}>
                 <Typography variant="h5" className={classes.titleMain}>
                   Mi Carrito{" "}
@@ -157,7 +195,9 @@ export default function Cart() {
                           justifyContent="center"
                           className={classes.gridAlingItems}
                         >
-                          <CardContent>
+                          <CardContent
+                            style={{ paddingBottom: 0, paddingTop: 0 }}
+                          >
                             <CardMedia
                               component="img"
                               alt="Contemplative Reptile"
@@ -173,7 +213,7 @@ export default function Cart() {
                           sm={6}
                           className={classes.gridAlingItems}
                         >
-                          <CardContent>
+                          <CardContent className={classes.contentCartDetalle}>
                             <Typography
                               variant="subtitle1"
                               className={classes.titleCard}
@@ -192,10 +232,11 @@ export default function Cart() {
                           item
                           xs={3}
                           sm={1}
+                          container
                           justifyContent="center"
                           className={classes.gridAlingItems}
                         >
-                          <CardContent>
+                          <CardContent className={classes.contentCartDetalle}>
                             <Typography
                               variant="subtitle1"
                               className={classes.titleCardDetalles}
@@ -218,7 +259,7 @@ export default function Cart() {
                           justifyContent="center"
                           className={classes.gridAlingItems}
                         >
-                          <CardContent>
+                          <CardContent className={classes.contentCartDetalle}>
                             <Typography
                               variant="subtitle1"
                               className={classes.titleCardDetalles}
@@ -237,10 +278,11 @@ export default function Cart() {
                           item
                           xs={3}
                           sm={1}
+                          container
                           justifyContent="center"
                           className={classes.gridAlingItems}
                         >
-                          <CardContent>
+                          <CardContent className={classes.contentCartDetalle}>
                             <Typography
                               variant="subtitle1"
                               className={classes.titleCardDetalles}
@@ -263,7 +305,7 @@ export default function Cart() {
                           justifyContent="center"
                           className={classes.gridAlingItems}
                         >
-                          <CardContent>
+                          <CardContent className={classes.contentCartDetalle}>
                             <label htmlFor="icon-button-file">
                               <IconButton
                                 aria-label="upload picture"
@@ -281,47 +323,103 @@ export default function Cart() {
                 })}
               </Grid>
               <Grid item xs={12} sm={3}>
-                <Grid
-                  container
-                  justifyContent="center"
-                  className={classes.boxCompra}
-                >
-                  <Typography
-                    variant="subtitle2"
-                    className={classes.titleCompra}
-                  >
-                    RESUMEN DE COMPRA
-                  </Typography>
-                </Grid>
-                <Grid container spacing={1}>
-                  <Grid item xs={8} sm={8}>
-                    <Typography
-                      variant="subtitle1"
-                      className={classes.titleCompraDetalle}
-                    >
-                      TOTAL
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={4} sm={4}>
-                    <Typography
-                      variant="subtitle1"
-                      className={classes.titleCompraDetalle}
-                    >
-                      $
-                      {cart.cart.productos.reduce(
-                        (total, n) => total + n.item.precio * n.qy,
-                        0
-                      )}
-                    </Typography>
-                  </Grid>
-                </Grid>
-                <Grid container justifyContent="center">
-                  <NavLink to="/checkout" className={classes.navBtnComprar}>
-                    <Button variant="contained" className={classes.btnComprar}>
-                      Comprar
-                    </Button>
-                  </NavLink>
-                </Grid>
+                <Card className={classes.root}>
+                  <CardContent>
+                    <Grid container justifyContent="center">
+                      <Typography className={classes.title} gutterBottom>
+                        RESUMEN DE COMPRA
+                      </Typography>
+                    </Grid>
+                    <br />
+                    <Grid container justifyContent="center">
+                      <Accordion className={classes.acordion}>
+                        <AccordionSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          aria-controls="panel1a-content"
+                          id="panel1a-header"
+                          style={{ backgroundColor: "#e1e1e1" }}
+                        >
+                          <Typography
+                            variant="subtitle1"
+                            className={classes.titleAcordion}
+                          >
+                            ¿Tenés un código de descuento?
+                          </Typography>
+                        </AccordionSummary>
+                        <AccordionDetails className={classes.acordionDetails}>
+                          <TextField
+                            className={classes.input}
+                            id="outlined-basic"
+                            label="Codigo de descuento"
+                            variant="outlined"
+                            size="small"
+                          />
+                        </AccordionDetails>
+                        <AccordionDetails>
+                          <Link
+                            className={classes.titleAcordion}
+                            style={{ textDecoration: "none" }}
+                          >
+                            APLICAR {">"}
+                          </Link>
+                        </AccordionDetails>
+                      </Accordion>
+                    </Grid>
+                    <br />
+                    <Grid container spacing={1}>
+                      <Grid item xs={8} sm={6}>
+                        <Typography variant="body2" component="p">
+                          SUBTOTAL
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={4} sm={6}>
+                        <Typography
+                          variant="body2"
+                          component="p"
+                          className={classes.titlePrecioSubtotal}
+                        >
+                          $
+                          {cart.cart.productos.reduce(
+                            (total, n) => total + n.item.precio * n.qy,
+                            0
+                          )}
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                    <Grid container spacing={1}>
+                      <Grid item xs={8} sm={6}>
+                        <Typography
+                          variant="subtitle1"
+                          gutterBottom
+                          className={classes.titleTotal}
+                        >
+                          TOTAL
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={4} sm={6}>
+                        <Typography
+                          variant="subtitle1"
+                          gutterBottom
+                          className={classes.titlePrecioTotal}
+                        >
+                          $
+                          {cart.cart.productos.reduce(
+                            (total, n) => total + n.item.precio * n.qy,
+                            0
+                          )}
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                    <NavLink to="/checkout" className={classes.navBtnComprar}>
+                      <Button
+                        variant="contained"
+                        className={classes.btnComprar}
+                      >
+                        INICIAR PAGO {">"}
+                      </Button>
+                    </NavLink>
+                  </CardContent>
+                </Card>
               </Grid>
             </Grid>
           </Container>

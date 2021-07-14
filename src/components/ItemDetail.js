@@ -13,13 +13,11 @@ import { NavLink } from "react-router-dom";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import ItemList from "./ItemList";
-import { IconButton } from "@material-ui/core";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import { getFirestore } from "../firebase/firebase";
 import { makeStyles } from "@material-ui/core/styles";
 import InstagramIcon from "@material-ui/icons/Instagram";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   NavLink: {
     textDecoration: "none",
     color: "white",
@@ -59,12 +57,15 @@ const useStyles = makeStyles({
   title: {
     fontSize: 40,
     fontWeight: "bold",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 25,
+    },
   },
   parrafoRedes: {
     marginTop: 20,
     color: "gray",
   },
-});
+}));
 
 export default function ItemDetail({
   img,
@@ -93,7 +94,10 @@ export default function ItemDetail({
       .get()
       .then((snapshot) => {
         setItems(
-          snapshot.docs.map((doc) => doc.data()).filter((x) => x.id !== id)
+          snapshot.docs
+            .map((doc) => doc.data())
+            .filter((x) => x.id !== id)
+            .slice(0, 4)
         );
         setLoading(false);
       });

@@ -1,7 +1,6 @@
 import React from "react";
 import ItemListContainer from "./ItemListContainer";
 import { Container, Grid } from "@material-ui/core";
-import imagen_principal from "../img/imagen_principal.png";
 import { NavLink } from "react-router-dom";
 import footer_img from "../img/footer_img.png";
 import footer_img_2 from "../img/footer_img_2.png";
@@ -9,9 +8,10 @@ import header_promocion from "../img/header_promocion.png";
 import header_promocion_2 from "../img/header_promocion_2.png";
 import header_promocion_3 from "../img/header_promocion_3.png";
 import { makeStyles } from "@material-ui/core/styles";
+import Carrusel from "./Carrusel";
 const useStyles = makeStyles({
   main: {
-    marginTop: 100,
+    marginTop: 50,
   },
   img: {
     width: "100%",
@@ -23,11 +23,7 @@ export default function Main() {
 
   return (
     <Container className={classes.main}>
-      <img
-        src={imagen_principal}
-        className={classes.img}
-        alt="imagen de publicidad"
-      />
+      <Carrusel />
       <Grid
         spacing={1}
         className={classes.main}
@@ -65,7 +61,7 @@ export default function Main() {
       <ItemListContainer />
       <Grid
         container
-        spacing={5}
+        spacing={10}
         className={classes.main}
         justifyContent="center"
       >

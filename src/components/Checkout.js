@@ -33,9 +33,9 @@ const useStyles = makeStyles((theme) => ({
   btnAgregar: {
     color: "white",
     fontWeight: "bold",
-    backgroundColor: "#4caf50",
+    backgroundColor: "#09ae85",
     "&:hover": {
-      backgroundColor: "#357a38",
+      backgroundColor: "#09ae85",
     },
   },
   messageError: {
@@ -152,7 +152,6 @@ export default function Checkout() {
         setIdOrder(id);
         setMessage(true);
       });
-      console.log("estan todos");
     } else {
       setMessageError(true);
     }

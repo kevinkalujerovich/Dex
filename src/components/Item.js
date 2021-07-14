@@ -1,18 +1,19 @@
 import React from "react";
-import { IconButton, Grid } from "@material-ui/core";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { CardActions, CardMedia } from "@material-ui/core";
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: 14,
   },
   name: {
     fontSize: 16,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 12,
+    },
   },
   root: {
     width: "100%",
@@ -35,8 +36,12 @@ const useStyles = makeStyles({
   precio: {
     fontWeight: "bold",
     fontSize: 30,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 15,
+    },
   },
-});
+  iconFavorite: {},
+}));
 export default function Item({ name, precio, img, id, category }) {
   const classes = useStyles();
 
@@ -70,24 +75,9 @@ export default function Item({ name, precio, img, id, category }) {
           </Typography>
         </CardContent>
         <CardActions className={classes.cardActions}>
-          <Grid container spacing={1}>
-            <Grid item sm={9}>
-              <Typography
-                gutterBottom
-                variant="body1"
-                className={classes.precio}
-              >
-                ${precio}
-              </Typography>
-            </Grid>
-            <Grid item sm={3}>
-              <label htmlFor="icon-button-file">
-                <IconButton aria-label="upload picture" component="span">
-                  <FavoriteBorderIcon />
-                </IconButton>
-              </label>
-            </Grid>
-          </Grid>
+          <Typography gutterBottom variant="body1" className={classes.precio}>
+            ${precio}
+          </Typography>
         </CardActions>
       </Card>
     </NavLink>

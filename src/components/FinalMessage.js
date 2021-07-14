@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Container, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { NavLink } from "react-router-dom";
 const useStyles = makeStyles({
   root: {
     backgroundColor: "#fb547c",
@@ -15,6 +16,7 @@ const useStyles = makeStyles({
   },
   btn: {
     marginTop: 50,
+    textDecoration: "none",
   },
 });
 export default function FinalMessage({ id }) {
@@ -25,15 +27,15 @@ export default function FinalMessage({ id }) {
         <Typography variant="h4" gutterBottom>
           ¡Gracias por su compra!
         </Typography>
-        <Typography variant="subtitule1" gutterBottom>
+        <Typography variant="subtitle1" gutterBottom>
           Enviamos tu factura y datos de la compra a example@gmail.com, tu orden
           de compra es:<span className={classes.codigoOrden}>{"  " + id}</span>
         </Typography>
-        <Typography className={classes.btn}>
+        <NavLink to="/" className={classes.btn}>
           <Button variant="outlined" size="small">
             SEGUIR COMPRANDO
           </Button>
-        </Typography>
+        </NavLink>
       </Container>
     </>
   );
