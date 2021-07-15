@@ -1,5 +1,6 @@
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import { useState } from "react";
 import {
   Grid,
   Container,
@@ -138,10 +139,21 @@ const useStyles = makeStyles((theme) => ({
   titleAcordion: {
     fontSize: 12,
   },
+  titleDescuentoSubtotal: {
+    color: "red",
+    float: "right",
+    fontWeight: "bold",
+  },
+  titleDescuento: {
+    color: "red",
+    fontWeight: "bold",
+  },
 }));
 export default function Cart() {
   const classes = useStyles();
   const cart = useCart();
+  const [codigo, setCodigo] = useState("");
+  const [descuento, setDescuento] = useState(false);
 
   const removeItemCart = (parametro) => {
     cart.removeItem(parametro);
@@ -149,7 +161,13 @@ export default function Cart() {
   const clearCart = () => {
     cart.clear();
   };
-
+  const onChange = (e) => {
+    setCodigo(e.target.value);
+  };
+  const validar = () => {
+    codigo === "descuento" && setDescuento(true);
+  };
+  console.log(descuento);
   return (
     <>
       {cart.cart.productos.length > 0 ? (
@@ -349,19 +367,22 @@ export default function Cart() {
                         <AccordionDetails className={classes.acordionDetails}>
                           <TextField
                             className={classes.input}
-                            id="outlined-basic"
                             label="Codigo de descuento"
-                            variant="outlined"
+                            onChange={onChange}
                             size="small"
+                            variant="outlined"
                           />
                         </AccordionDetails>
                         <AccordionDetails>
-                          <Link
-                            className={classes.titleAcordion}
-                            style={{ textDecoration: "none" }}
-                          >
-                            APLICAR {">"}
-                          </Link>
+                          <Button>
+                            <Link
+                              className={classes.titleAcordion}
+                              style={{ textDecoration: "none" }}
+                              onClick={validar}
+                            >
+                              APLICAR {">"}
+                            </Link>
+                          </Button>
                         </AccordionDetails>
                       </Accordion>
                     </Grid>
@@ -369,7 +390,7 @@ export default function Cart() {
                     <Grid container spacing={1}>
                       <Grid item xs={8} sm={6}>
                         <Typography variant="body2" component="p">
-                          SUBTOTAL
+                          Subtotal
                         </Typography>
                       </Grid>
                       <Grid item xs={4} sm={6}>
@@ -386,6 +407,29 @@ export default function Cart() {
                         </Typography>
                       </Grid>
                     </Grid>
+                    {descuento && (
+                      <Grid container spacing={1}>
+                        <Grid item xs={8} sm={6}>
+                          <Typography
+                            variant="body2"
+                            component="p"
+                            className={classes.titleDescuento}
+                          >
+                            Descuento
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={4} sm={6}>
+                          <Typography
+                            variant="body2"
+                            component="p"
+                            className={classes.titleDescuentoSubtotal}
+                          >
+                            $100
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    )}
+
                     <Grid container spacing={1}>
                       <Grid item xs={8} sm={6}>
                         <Typography
