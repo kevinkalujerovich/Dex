@@ -1,28 +1,30 @@
 {
   "files": {
     "main.css": "/Dex-React/static/css/main.2ae47eeb.chunk.css",
-    "main.js": "/Dex-React/static/js/main.3b5132d0.chunk.js",
-    "main.js.map": "/Dex-React/static/js/main.3b5132d0.chunk.js.map",
-    "runtime-main.js": "/Dex-React/static/js/runtime-main.39f4e443.js",
-    "runtime-main.js.map": "/Dex-React/static/js/runtime-main.39f4e443.js.map",
-    "static/js/2.9dcc356f.chunk.js": "/Dex-React/static/js/2.9dcc356f.chunk.js",
-    "static/js/2.9dcc356f.chunk.js.map": "/Dex-React/static/js/2.9dcc356f.chunk.js.map",
-    "static/js/3.f5e97b58.chunk.js": "/Dex-React/static/js/3.f5e97b58.chunk.js",
-    "static/js/3.f5e97b58.chunk.js.map": "/Dex-React/static/js/3.f5e97b58.chunk.js.map",
+    "main.js": "/Dex-React/static/js/main.82b7520b.chunk.js",
+    "main.js.map": "/Dex-React/static/js/main.82b7520b.chunk.js.map",
+    "runtime-main.js": "/Dex-React/static/js/runtime-main.8c9e423a.js",
+    "runtime-main.js.map": "/Dex-React/static/js/runtime-main.8c9e423a.js.map",
+    "static/js/2.e40c0a10.chunk.js": "/Dex-React/static/js/2.e40c0a10.chunk.js",
+    "static/js/2.e40c0a10.chunk.js.map": "/Dex-React/static/js/2.e40c0a10.chunk.js.map",
+    "static/js/3.2de381ff.chunk.js": "/Dex-React/static/js/3.2de381ff.chunk.js",
+    "static/js/3.2de381ff.chunk.js.map": "/Dex-React/static/js/3.2de381ff.chunk.js.map",
     "index.html": "/Dex-React/index.html",
     "static/css/main.2ae47eeb.chunk.css.map": "/Dex-React/static/css/main.2ae47eeb.chunk.css.map",
-    "static/js/2.9dcc356f.chunk.js.LICENSE.txt": "/Dex-React/static/js/2.9dcc356f.chunk.js.LICENSE.txt",
+    "static/js/2.e40c0a10.chunk.js.LICENSE.txt": "/Dex-React/static/js/2.e40c0a10.chunk.js.LICENSE.txt",
+    "static/media/carrusel_1.7ee6fdde.jpg": "/Dex-React/static/media/carrusel_1.7ee6fdde.jpg",
+    "static/media/carrusel_2.71a97ac2.jpg": "/Dex-React/static/media/carrusel_2.71a97ac2.jpg",
+    "static/media/carrusel_3.40876697.jpg": "/Dex-React/static/media/carrusel_3.40876697.jpg",
     "static/media/footer_img.46d875b1.png": "/Dex-React/static/media/footer_img.46d875b1.png",
     "static/media/footer_img_2.c723171f.png": "/Dex-React/static/media/footer_img_2.c723171f.png",
     "static/media/header_promocion.4dfe6bb7.png": "/Dex-React/static/media/header_promocion.4dfe6bb7.png",
     "static/media/header_promocion_2.bbcdd9a4.png": "/Dex-React/static/media/header_promocion_2.bbcdd9a4.png",
-    "static/media/header_promocion_3.1dad4c28.png": "/Dex-React/static/media/header_promocion_3.1dad4c28.png",
-    "static/media/imagen_principal.93fceb9f.png": "/Dex-React/static/media/imagen_principal.93fceb9f.png"
+    "static/media/header_promocion_3.1dad4c28.png": "/Dex-React/static/media/header_promocion_3.1dad4c28.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.39f4e443.js",
-    "static/js/2.9dcc356f.chunk.js",
+    "static/js/runtime-main.8c9e423a.js",
+    "static/js/2.e40c0a10.chunk.js",
     "static/css/main.2ae47eeb.chunk.css",
-    "static/js/main.3b5132d0.chunk.js"
+    "static/js/main.82b7520b.chunk.js"
   ]
 }
