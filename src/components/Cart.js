@@ -14,6 +14,7 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useCart } from "../contexts/CartContext";
 import { makeStyles } from "@material-ui/core/styles";
@@ -153,8 +154,12 @@ export default function Cart() {
   const classes = useStyles();
   const cart = useCart();
   const [codigo, setCodigo] = useState("");
-  const [descuento, setDescuento] = useState(false);
-
+  const [descuento, setDescuento] = useState(null);
+  const [input, setInput] = useState(true);
+  const total = cart.cart.productos.reduce(
+    (total, n) => total + n.item.precio * n.qy,
+    0
+  );
   const removeItemCart = (parametro) => {
     cart.removeItem(parametro);
   };
@@ -165,9 +170,13 @@ export default function Cart() {
     setCodigo(e.target.value);
   };
   const validar = () => {
-    codigo === "descuento" && setDescuento(true);
+    if (codigo !== "descuento") {
+      setDescuento(false);
+    } else {
+      setDescuento(true);
+      setInput(false);
+    }
   };
-  console.log(descuento);
   return (
     <>
       {cart.cart.productos.length > 0 ? (
@@ -349,44 +358,57 @@ export default function Cart() {
                       </Typography>
                     </Grid>
                     <br />
-                    <Grid container justifyContent="center">
-                      <Accordion className={classes.acordion}>
-                        <AccordionSummary
-                          expandIcon={<ExpandMoreIcon />}
-                          aria-controls="panel1a-content"
-                          id="panel1a-header"
-                          style={{ backgroundColor: "#e1e1e1" }}
-                        >
-                          <Typography
-                            variant="subtitle1"
-                            className={classes.titleAcordion}
-                          >
-                            ¿Tenés un código de descuento?
-                          </Typography>
-                        </AccordionSummary>
-                        <AccordionDetails className={classes.acordionDetails}>
-                          <TextField
-                            className={classes.input}
-                            label="Codigo de descuento"
-                            onChange={onChange}
-                            size="small"
-                            variant="outlined"
-                          />
-                        </AccordionDetails>
-                        <AccordionDetails>
-                          <Button>
-                            <Link
-                              className={classes.titleAcordion}
-                              style={{ textDecoration: "none" }}
-                              onClick={validar}
+                    {input && (
+                      <>
+                        <Grid container justifyContent="center">
+                          <Accordion className={classes.acordion}>
+                            <AccordionSummary
+                              expandIcon={<ExpandMoreIcon />}
+                              aria-controls="panel1a-content"
+                              id="panel1a-header"
+                              style={{ backgroundColor: "#e1e1e1" }}
                             >
-                              APLICAR {">"}
-                            </Link>
-                          </Button>
-                        </AccordionDetails>
-                      </Accordion>
-                    </Grid>
-                    <br />
+                              <Typography
+                                variant="subtitle1"
+                                className={classes.titleAcordion}
+                              >
+                                ¿Tenés un código de descuento?
+                              </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails
+                              className={classes.acordionDetails}
+                            >
+                              <TextField
+                                className={classes.input}
+                                label="Codigo de descuento"
+                                onChange={onChange}
+                                variant="outlined"
+                                size="small"
+                              />
+                            </AccordionDetails>
+                            {descuento === false && (
+                              <AccordionDetails>
+                                <Alert severity="error" size="small">
+                                  Codigo incorrecto
+                                </Alert>
+                              </AccordionDetails>
+                            )}
+                            <AccordionDetails>
+                              <Button>
+                                <Link
+                                  className={classes.titleAcordion}
+                                  style={{ textDecoration: "none" }}
+                                  onClick={validar}
+                                >
+                                  APLICAR {">"}
+                                </Link>
+                              </Button>
+                            </AccordionDetails>
+                          </Accordion>
+                        </Grid>
+                        <br />
+                      </>
+                    )}
                     <Grid container spacing={1}>
                       <Grid item xs={8} sm={6}>
                         <Typography variant="body2" component="p">
@@ -399,11 +421,7 @@ export default function Cart() {
                           component="p"
                           className={classes.titlePrecioSubtotal}
                         >
-                          $
-                          {cart.cart.productos.reduce(
-                            (total, n) => total + n.item.precio * n.qy,
-                            0
-                          )}
+                          ${total}
                         </Typography>
                       </Grid>
                     </Grid>
@@ -415,7 +433,7 @@ export default function Cart() {
                             component="p"
                             className={classes.titleDescuento}
                           >
-                            Descuento
+                            Descuento %10
                           </Typography>
                         </Grid>
                         <Grid item xs={4} sm={6}>
@@ -424,7 +442,7 @@ export default function Cart() {
                             component="p"
                             className={classes.titleDescuentoSubtotal}
                           >
-                            $100
+                            {((total * 10) / 100).toFixed(2)}
                           </Typography>
                         </Grid>
                       </Grid>
@@ -447,10 +465,9 @@ export default function Cart() {
                           className={classes.titlePrecioTotal}
                         >
                           $
-                          {cart.cart.productos.reduce(
-                            (total, n) => total + n.item.precio * n.qy,
-                            0
-                          )}
+                          {descuento
+                            ? (total - (total * 10) / 100).toFixed(2)
+                            : total}
                         </Typography>
                       </Grid>
                     </Grid>
