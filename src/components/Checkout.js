@@ -306,7 +306,7 @@ export default function Checkout() {
             >
               {messageerror && (
                 <Alert severity="error">
-                  Por favor rellena el formulario correctamente.
+                  Por favor rellena el formulario correctamente
                 </Alert>
               )}
             </Grid>
