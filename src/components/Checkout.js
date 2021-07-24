@@ -113,6 +113,13 @@ export default function Checkout() {
   const [messageerror, setMessageError] = useState("");
   const [message, setMessage] = useState(false);
   const [idorder, setIdOrder] = useState("");
+  const subtotal = cart.cart.productos.reduce(
+    (total, n) => total + n.item.precio * n.qy,
+    0
+  );
+  const total = cart.cart.descuento
+    ? subtotal - (subtotal * 10) / 100
+    : subtotal;
   const enviarDatos = () => {
     if (
       nombre.campo !== "" &&
@@ -141,11 +148,8 @@ export default function Checkout() {
           apellido: apellido.campo,
           phone: telefono.campo,
         },
+        total: total,
         items: cart.cart.productos,
-        total: cart.cart.productos.reduce(
-          (total, n) => total + n.item.precio * n.qy,
-          0
-        ),
       };
       ordersCollections.add(newOrder).then(({ id }) => {
         clearCart();
@@ -306,7 +310,7 @@ export default function Checkout() {
             >
               {messageerror && (
                 <Alert severity="error">
-                  Por favor rellena el formulario correctamente
+                  Por favor rellena el formulario correctamente.
                 </Alert>
               )}
             </Grid>

@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import { Grid, IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import { useCart } from "../contexts/CartContext";
 const useStyles = makeStyles({
   btnAgregar: {
     color: "white",
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
   },
 });
 export default function ItemCount({ initial, stock, funcion }) {
+  const cart = useCart();
   const classes = useStyles();
   const [counter, setCounter] = useState(initial);
 
@@ -40,7 +42,6 @@ export default function ItemCount({ initial, stock, funcion }) {
       setCounter(counter + 1);
     }
   };
-
   return (
     <>
       <ButtonGroup
@@ -63,7 +64,7 @@ export default function ItemCount({ initial, stock, funcion }) {
             variant="contained"
             size="large"
             className={classes.btnAgregar}
-            onClick={() => funcion(counter)}
+            onClick={() => funcion(counter, cart.cart.descuento)}
           >
             Agregar al carrito
           </Button>

@@ -105,11 +105,10 @@ export default function ItemDetail({
 
   const cart = useCart();
   const [cant, setCant] = useState(false);
-  const onAdd = (value) => {
+  const onAdd = (value, valorDescuento) => {
     setCant(true);
-    cart.addItem({ item: array, qy: value });
+    cart.addItem({ item: array, qy: value }, valorDescuento);
   };
-
   return (
     <>
       <Container className={classes.mainDescription}>

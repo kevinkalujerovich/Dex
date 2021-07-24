@@ -22,7 +22,7 @@ export default function Carrusel() {
       img: Carrusel_2,
       link: "/item/21",
     },
-    { img: Carrusel_3, link: "/item/6" },
+    { img: Carrusel_3, link: "/item/23" },
   ];
 
   return (

@@ -149,22 +149,29 @@ const useStyles = makeStyles((theme) => ({
     color: "red",
     fontWeight: "bold",
   },
+  errorDescuento: {
+    width: "100%",
+    textAlign: "center",
+  },
 }));
 export default function Cart() {
   const classes = useStyles();
   const cart = useCart();
   const [codigo, setCodigo] = useState("");
   const [descuento, setDescuento] = useState(null);
-  const [input, setInput] = useState(true);
   const total = cart.cart.productos.reduce(
     (total, n) => total + n.item.precio * n.qy,
     0
   );
-  const removeItemCart = (parametro) => {
-    cart.removeItem(parametro);
+  const descuentoTotal = (total * 10) / 100;
+  const removeItemCart = (parametro, descuento) => {
+    cart.removeItem(parametro, descuento);
   };
   const clearCart = () => {
     cart.clear();
+  };
+  const valorDescuento = (valor) => {
+    cart.valorDescuento(valor);
   };
   const onChange = (e) => {
     setCodigo(e.target.value);
@@ -174,7 +181,7 @@ export default function Cart() {
       setDescuento(false);
     } else {
       setDescuento(true);
-      setInput(false);
+      valorDescuento(true);
     }
   };
   return (
@@ -337,7 +344,9 @@ export default function Cart() {
                               <IconButton
                                 aria-label="upload picture"
                                 component="span"
-                                onClick={() => removeItemCart(x.item.id)}
+                                onClick={() =>
+                                  removeItemCart(x.item.id, cart.cart.descuento)
+                                }
                               >
                                 <DeleteIcon className={classes.btnRemove} />
                               </IconButton>
@@ -358,7 +367,8 @@ export default function Cart() {
                       </Typography>
                     </Grid>
                     <br />
-                    {input && (
+
+                    {cart.cart.descuento === false && (
                       <>
                         <Grid container justifyContent="center">
                           <Accordion className={classes.acordion}>
@@ -388,7 +398,11 @@ export default function Cart() {
                             </AccordionDetails>
                             {descuento === false && (
                               <AccordionDetails>
-                                <Alert severity="error" size="small">
+                                <Alert
+                                  severity="error"
+                                  size="small"
+                                  className={classes.errorDescuento}
+                                >
                                   Codigo incorrecto
                                 </Alert>
                               </AccordionDetails>
@@ -425,7 +439,7 @@ export default function Cart() {
                         </Typography>
                       </Grid>
                     </Grid>
-                    {descuento && (
+                    {cart.cart.descuento && (
                       <Grid container spacing={1}>
                         <Grid item xs={8} sm={6}>
                           <Typography
@@ -442,12 +456,11 @@ export default function Cart() {
                             component="p"
                             className={classes.titleDescuentoSubtotal}
                           >
-                            {((total * 10) / 100).toFixed(2)}
+                            {descuentoTotal.toFixed(2)}
                           </Typography>
                         </Grid>
                       </Grid>
                     )}
-
                     <Grid container spacing={1}>
                       <Grid item xs={8} sm={6}>
                         <Typography
@@ -465,8 +478,8 @@ export default function Cart() {
                           className={classes.titlePrecioTotal}
                         >
                           $
-                          {descuento
-                            ? (total - (total * 10) / 100).toFixed(2)
+                          {cart.cart.descuento
+                            ? (total - descuentoTotal).toFixed(2)
                             : total}
                         </Typography>
                       </Grid>
