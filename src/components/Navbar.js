@@ -77,7 +77,7 @@ export default function Navbar() {
                 <img src={logo} alt="imagen de logo de tienda" width="80px" />
               </NavLink>
             </Typography>
-            <NavLink to="/cart" className={classes.iconosNav}>
+            <NavLink to="/favorite" className={classes.iconosNav}>
               <FavoriteCart />
             </NavLink>
             <NavLink to="/cart" className={classes.iconosNav}>

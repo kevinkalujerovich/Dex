@@ -94,7 +94,6 @@ export default function ItemListContainer() {
             setLoading(false);
           });
   }, [catId]);
-
   const reset = () => {
     setAuxRelevantes(null);
     setValueSelect("");

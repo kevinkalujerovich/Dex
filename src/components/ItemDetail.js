@@ -16,6 +16,7 @@ import ItemList from "./ItemList";
 import { getFirestore } from "../firebase/firebase";
 import { makeStyles } from "@material-ui/core/styles";
 import InstagramIcon from "@material-ui/icons/Instagram";
+import { useFavorite } from "../contexts/FavoriteContext";
 
 const useStyles = makeStyles((theme) => ({
   NavLink: {
@@ -104,10 +105,14 @@ export default function ItemDetail({
   }, [category, id]);
 
   const cart = useCart();
+  const favorite = useFavorite();
   const [cant, setCant] = useState(false);
   const onAdd = (value, valorDescuento) => {
     setCant(true);
     cart.addItem({ item: array, qy: value }, valorDescuento);
+  };
+  const onAddFavorite = () => {
+    favorite.addItem({ item: array });
   };
   return (
     <>
@@ -136,7 +141,12 @@ export default function ItemDetail({
                 </Button>
               </NavLink>
             ) : (
-              <ItemCount stock={10} initial={1} funcion={onAdd} />
+              <ItemCount
+                stock={10}
+                initial={1}
+                funcion={onAdd}
+                funcionFavorite={onAddFavorite}
+              />
             )}
             <Grid>
               <Typography variant="subtitle2" className={classes.parrafoRedes}>

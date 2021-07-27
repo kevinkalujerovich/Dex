@@ -27,7 +27,12 @@ const useStyles = makeStyles({
     marginBottom: 10,
   },
 });
-export default function ItemCount({ initial, stock, funcion }) {
+export default function ItemCount({
+  initial,
+  stock,
+  funcion,
+  funcionFavorite,
+}) {
   const cart = useCart();
   const classes = useStyles();
   const [counter, setCounter] = useState(initial);
@@ -75,6 +80,7 @@ export default function ItemCount({ initial, stock, funcion }) {
               aria-label="upload picture"
               component="span"
               className={classes.prueba}
+              onClick={() => funcionFavorite()}
             >
               <FavoriteBorderIcon className={classes.favoriteIcon} />
             </IconButton>
