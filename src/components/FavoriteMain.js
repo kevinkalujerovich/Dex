@@ -33,7 +33,6 @@ export default function FavoriteCart() {
   const classes = useStyles();
   const favorite = useFavorite();
   const items = favorite.favorite.map((x) => x.item);
-  console.log(items);
   return (
     <Container className={classes.main}>
       {items.length > 0 ? (
@@ -43,7 +42,7 @@ export default function FavoriteCart() {
           </Grid>
           <Grid item xs={12} sm={10}>
             <Grid container spacing={1}>
-              <ItemList array={items} col={3} />
+              <ItemList array={items} col={3} button={"eliminar"} />
             </Grid>
           </Grid>
         </Grid>

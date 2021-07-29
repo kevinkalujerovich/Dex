@@ -37,7 +37,6 @@ export const CartProvider = ({ children }) => {
       descuento: descuento,
     });
   };
-  console.log(cart.productos);
   return (
     <CartContext.Provider
       value={{ cart, addItem, clear, removeItem, valorDescuento }}

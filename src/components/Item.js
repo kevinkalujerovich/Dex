@@ -4,7 +4,8 @@ import CardContent from "@material-ui/core/CardContent";
 import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { CardActions, CardMedia } from "@material-ui/core";
+import { CardActions, CardMedia, IconButton, Grid } from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
 const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: 14,
@@ -40,9 +41,8 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 15,
     },
   },
-  iconFavorite: {},
 }));
-export default function Item({ name, precio, img, id, category }) {
+export default function Item({ name, precio, img, id, category, button }) {
   const classes = useStyles();
 
   return (
@@ -75,9 +75,28 @@ export default function Item({ name, precio, img, id, category }) {
           </Typography>
         </CardContent>
         <CardActions className={classes.cardActions}>
-          <Typography gutterBottom variant="body1" className={classes.precio}>
-            ${precio}
-          </Typography>
+          <Grid container>
+            <Grid item xs={10} sm={10}>
+              <Typography
+                gutterBottom
+                variant="body1"
+                className={classes.precio}
+              >
+                ${precio}
+              </Typography>
+            </Grid>
+            <Grid item xs={2} sm={2}>
+              {button === "eliminar" ? (
+                <label htmlFor="icon-button-file">
+                  <IconButton aria-label="upload picture" component="span">
+                    <DeleteIcon style={{ color: "gray", fontSize: 20 }} />
+                  </IconButton>
+                </label>
+              ) : (
+                "eliminar"
+              )}
+            </Grid>
+          </Grid>
         </CardActions>
       </Card>
     </NavLink>

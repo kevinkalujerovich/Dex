@@ -2,7 +2,7 @@ import Item from "./Item";
 import React from "react";
 import { Grid } from "@material-ui/core";
 
-export default function ItemList({ array, col }) {
+export default function ItemList({ array, col, button }) {
   return (
     <>
       {array.map((item) => {
@@ -14,6 +14,7 @@ export default function ItemList({ array, col }) {
               precio={item.precio}
               id={item.id}
               category={item.category}
+              button={button}
             />
           </Grid>
         );
