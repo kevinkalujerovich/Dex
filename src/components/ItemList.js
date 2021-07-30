@@ -15,6 +15,7 @@ export default function ItemList({ array, col, button }) {
               id={item.id}
               category={item.category}
               button={button}
+              array={array}
             />
           </Grid>
         );

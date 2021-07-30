@@ -8,7 +8,7 @@ export const FavoriteProvider = ({ children }) => {
   const [favorite, setFavorite] = useState([]);
 
   const addItem = (item) => {
-    if (favorite.some((x) => x.item.name === item.item.name)) {
+    if (favorite.some((x) => x.name === item.name)) {
       return;
     } else {
       setFavorite([...favorite, item]);
@@ -18,10 +18,11 @@ export const FavoriteProvider = ({ children }) => {
   const clear = () => {
     setFavorite([]);
   };
-
-  console.log(favorite);
+  const removeItem = (itemId) => {
+    setFavorite(favorite.filter((x) => x.id !== itemId));
+  };
   return (
-    <FavoriteContext.Provider value={{ favorite, addItem, clear }}>
+    <FavoriteContext.Provider value={{ favorite, addItem, clear, removeItem }}>
       {children}
     </FavoriteContext.Provider>
   );

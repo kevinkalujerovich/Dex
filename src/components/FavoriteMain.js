@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 export default function FavoriteCart() {
   const classes = useStyles();
   const favorite = useFavorite();
-  const items = favorite.favorite.map((x) => x.item);
+  const items = favorite.favorite;
   return (
     <Container className={classes.main}>
       {items.length > 0 ? (
