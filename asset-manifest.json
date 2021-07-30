@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Dex-React/static/css/main.2ae47eeb.chunk.css",
-    "main.js": "/Dex-React/static/js/main.7b6b1600.chunk.js",
-    "main.js.map": "/Dex-React/static/js/main.7b6b1600.chunk.js.map",
+    "main.js": "/Dex-React/static/js/main.cacd56e2.chunk.js",
+    "main.js.map": "/Dex-React/static/js/main.cacd56e2.chunk.js.map",
     "runtime-main.js": "/Dex-React/static/js/runtime-main.8c9e423a.js",
     "runtime-main.js.map": "/Dex-React/static/js/runtime-main.8c9e423a.js.map",
-    "static/js/2.aa13b98c.chunk.js": "/Dex-React/static/js/2.aa13b98c.chunk.js",
-    "static/js/2.aa13b98c.chunk.js.map": "/Dex-React/static/js/2.aa13b98c.chunk.js.map",
+    "static/js/2.53ca27d3.chunk.js": "/Dex-React/static/js/2.53ca27d3.chunk.js",
+    "static/js/2.53ca27d3.chunk.js.map": "/Dex-React/static/js/2.53ca27d3.chunk.js.map",
     "static/js/3.2de381ff.chunk.js": "/Dex-React/static/js/3.2de381ff.chunk.js",
     "static/js/3.2de381ff.chunk.js.map": "/Dex-React/static/js/3.2de381ff.chunk.js.map",
     "index.html": "/Dex-React/index.html",
     "static/css/main.2ae47eeb.chunk.css.map": "/Dex-React/static/css/main.2ae47eeb.chunk.css.map",
-    "static/js/2.aa13b98c.chunk.js.LICENSE.txt": "/Dex-React/static/js/2.aa13b98c.chunk.js.LICENSE.txt",
+    "static/js/2.53ca27d3.chunk.js.LICENSE.txt": "/Dex-React/static/js/2.53ca27d3.chunk.js.LICENSE.txt",
     "static/media/carrusel_1.7ee6fdde.jpg": "/Dex-React/static/media/carrusel_1.7ee6fdde.jpg",
     "static/media/carrusel_2.71a97ac2.jpg": "/Dex-React/static/media/carrusel_2.71a97ac2.jpg",
     "static/media/carrusel_3.40876697.jpg": "/Dex-React/static/media/carrusel_3.40876697.jpg",
@@ -23,8 +23,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.8c9e423a.js",
-    "static/js/2.aa13b98c.chunk.js",
+    "static/js/2.53ca27d3.chunk.js",
     "static/css/main.2ae47eeb.chunk.css",
-    "static/js/main.7b6b1600.chunk.js"
+    "static/js/main.cacd56e2.chunk.js"
   ]
 }
