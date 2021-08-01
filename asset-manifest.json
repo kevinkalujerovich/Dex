@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Dex-React/static/css/main.2ae47eeb.chunk.css",
-    "main.js": "/Dex-React/static/js/main.5c716b5a.chunk.js",
-    "main.js.map": "/Dex-React/static/js/main.5c716b5a.chunk.js.map",
+    "main.js": "/Dex-React/static/js/main.5a4c7bf2.chunk.js",
+    "main.js.map": "/Dex-React/static/js/main.5a4c7bf2.chunk.js.map",
     "runtime-main.js": "/Dex-React/static/js/runtime-main.8c9e423a.js",
     "runtime-main.js.map": "/Dex-React/static/js/runtime-main.8c9e423a.js.map",
     "static/js/2.7d388b3a.chunk.js": "/Dex-React/static/js/2.7d388b3a.chunk.js",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.8c9e423a.js",
     "static/js/2.7d388b3a.chunk.js",
     "static/css/main.2ae47eeb.chunk.css",
-    "static/js/main.5c716b5a.chunk.js"
+    "static/js/main.5a4c7bf2.chunk.js"
   ]
 }
