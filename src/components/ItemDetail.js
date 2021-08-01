@@ -112,7 +112,8 @@ export default function ItemDetail({
     cart.addItem({ item: array, qy: value }, valorDescuento);
   };
   const onAddFavorite = () => {
-    favorite.addItem({ item: array });
+    console.log(array);
+    favorite.addItem(array);
   };
   return (
     <>

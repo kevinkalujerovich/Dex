@@ -14,7 +14,6 @@ export const FavoriteProvider = ({ children }) => {
       setFavorite([...favorite, item]);
     }
   };
-
   const clear = () => {
     setFavorite([]);
   };
