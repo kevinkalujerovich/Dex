@@ -193,7 +193,7 @@ export default function ItemListContainer() {
                   </Typography>
 
                   <Grid container spacing={1} className={classes.boxFiltros}>
-                    <Grid item xs={6} sm={12}>
+                    <Grid item xs={12} sm={12}>
                       <Typography
                         variant="subtitle2"
                         gutterBottom
@@ -201,21 +201,23 @@ export default function ItemListContainer() {
                       >
                         MARCA
                       </Typography>
-                      {[...new Set(aux.map((x) => x.marca))].map((x, i) => (
-                        <Grid key={i}>
-                          <Link
-                            component="button"
-                            variant="body2"
-                            onClick={() => filtrarMarca(x)}
-                            className={classes.marcaLista}
-                            style={{ textDecoration: "none" }}
-                          >
-                            {x}
-                          </Link>
-                        </Grid>
-                      ))}
+                      <Grid container spacing={1}>
+                        {[...new Set(aux.map((x) => x.marca))].map((x, i) => (
+                          <Grid item xs={4} sm={12} key={i}>
+                            <Link
+                              component="button"
+                              variant="body2"
+                              onClick={() => filtrarMarca(x)}
+                              className={classes.marcaLista}
+                              style={{ textDecoration: "none" }}
+                            >
+                              {x}
+                            </Link>
+                          </Grid>
+                        ))}
+                      </Grid>
                     </Grid>
-                    <Grid item xs={6} sm={12}>
+                    <Grid item xs={12} sm={12}>
                       <Typography
                         variant="subtitle2"
                         gutterBottom
@@ -223,21 +225,23 @@ export default function ItemListContainer() {
                       >
                         PRECIO
                       </Typography>
-                      {precios.map((x, i) => (
-                        <Grid key={i}>
-                          <Link
-                            component="button"
-                            variant="body2"
-                            onClick={() =>
-                              filtrarPrecio(x.precio, x.min, x.max)
-                            }
-                            className={classes.marcaLista}
-                            style={{ textDecoration: "none" }}
-                          >
-                            {x.precio}
-                          </Link>
-                        </Grid>
-                      ))}
+                      <Grid container spacing={1}>
+                        {precios.map((x, i) => (
+                          <Grid item xs={4} sm={12} key={i}>
+                            <Link
+                              component="button"
+                              variant="body2"
+                              onClick={() =>
+                                filtrarPrecio(x.precio, x.min, x.max)
+                              }
+                              className={classes.marcaLista}
+                              style={{ textDecoration: "none" }}
+                            >
+                              {x.precio}
+                            </Link>
+                          </Grid>
+                        ))}
+                      </Grid>
                     </Grid>
                   </Grid>
                 </>
