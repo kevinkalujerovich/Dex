@@ -7,35 +7,12 @@ Ir a la carpeta Dex-React y correr los siguientes comandos.
 
 Listo la app debería estar corriendo en http://localhost:3000/
 
-General
-Siguiendo el enunciado del challenge y consultado previamente con rrhh. Se realizo solamente la parte de front, por lo cual a lo largo de la app se encontraran con data mockeada, o harcodeada con respecto a los servicios mas que nada. Sí, se imita el hecho de consumir un servicio, esto se hace creando una promesa y devolviendo los valores a través de la api axios, como por ejemplo en el caso de los usuarios, ya que no hay un servicio ni una DB, se trabajo con dos tipos de usuarios:
+# General
+El proyecto  funciona como una ecommerce con funciones basicas como navegar por categorias , agregar productos a un cart o a favoritos.La seccion categorias del ecommerce se podra ver los productos en cards individuales con la opcion de poder ver en detalle todas sus caracteristicas o agreegarlas a favoritos.La seccion de favoritos contiene los productos agregados con las opcion de ver sus detalles o eliminarlas de la seccion.La seccion de cart posee la informacion(cantidad,precio,subtotal,etc) del producto con un input para agregar un codigo de descuento el cual es  ###### descuento
 
-Usuario: admin | Password: 1234
-Usuario: user | Password: 1234
-Y esto es lo que finalmente devuelve la promesa.
-
-Luego del lado de las meetups creadas como no se hace un insert en la DB y se simula esta misma con el store de redux, se utilizo un flag (solo para este contexto front) que pregunta si el store cambió para ir a buscar la data nuevamente y asi evitar que cuando creamos una meetup nueva y volvemos a home no se pise el store con la data que se trae mockeada del archivo json. Logicamente en un caso normal no habria flag se haria el insert y la request para traer las meetups siempre traeria la ultima meetup agregada y ordenada.
-
-Algo similar paso con las notificaciones, se creo una Array(Cola de notificaciones), las cuales solo le van a llegar al usuario "user" y las vera solo la primera vez que ingrese y que se haya creado una meetup por parte del admin previamente, luego seran borradas. Desde la misma notificación se puede acceder a la meetup rapidamente haciendole click. Como antes mensione todo esto para simular notificaciones.
-
-En algunos casos directamente hago un handle al store de redux sin pasar por el servicio, ya que me parece inencesario por que demostre hacerlo en otros casos como (create , fetch, etc) y para ahorrar tiempo directamente lo maneje con una action de redux.
-
-DISCLAIMER: En lineas generales se trato de "adaptar" un poco la app para que funcione todo el flujo,y así se pueda probar y no tener "supuestos".
-WORKFLOW
-Para probrar al máximo la app, no es necesario abrir dos pestañas ya que esto no funcionara por que solo se realizo la parte de front.
-
-En la misma pestaña primero entrar como Admin probar lo que se requiera (Asistir a un evento, Crear un evento).
-
-Hacer logout e ingresar como user y luego provar lo que se requiera (asistir a un evento, ver notificaciones si se crearon nuevos eventos previamente).
-
-Tecnologías usadas
-React
-Redux, Redux-Thunk
-Antd
-Less
-Webpack
-Cypress
+# Tecnologías usadas
+- React
+- Material UI
 
 El proyecto es una tienda deportiva que cuenta con tres categorias(Botines,Camisetas,Remeras).Mi objetivo principal es que funcione similar a una tienda online con las limitaciones del proceso de contruccion del sitio pero siempre siendo optimas las funciones que se otorgan al usuario. 
 
-![GIF](https://user-images.githubusercontent.com/36220460/120962673-906a9e80-c736-11eb-9db4-04907a2855d3.gif)
