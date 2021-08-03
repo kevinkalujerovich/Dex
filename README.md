@@ -1,11 +1,11 @@
 # Dex
 By Kevin Kalujerovich
 
-Instrucciones para correr la aplicación
-Ir a la carpeta front (cd front) y correr los siguientes comandos.
-npm install npm start
+# Instrucciones para correr la aplicación
+Ir a la carpeta Dex-React y correr los siguientes comandos.
+> npm install npm start
 
-Listo la app debería estar corriendo en http://localhost:5000/
+Listo la app debería estar corriendo en http://localhost:3000/
 
 General
 Siguiendo el enunciado del challenge y consultado previamente con rrhh. Se realizo solamente la parte de front, por lo cual a lo largo de la app se encontraran con data mockeada, o harcodeada con respecto a los servicios mas que nada. Sí, se imita el hecho de consumir un servicio, esto se hace creando una promesa y devolviendo los valores a través de la api axios, como por ejemplo en el caso de los usuarios, ya que no hay un servicio ni una DB, se trabajo con dos tipos de usuarios:
