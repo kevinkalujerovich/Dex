@@ -13,6 +13,3 @@ El proyecto  funciona como una ecommerce con funciones basicas como navegar por 
 # Tecnologías usadas
 - React Js
 - Material UI
-
-El proyecto es una tienda deportiva que cuenta con tres categorias(Botines,Camisetas,Remeras).Mi objetivo principal es que funcione similar a una tienda online con las limitaciones del proceso de contruccion del sitio pero siempre siendo optimas las funciones que se otorgan al usuario. 
-
