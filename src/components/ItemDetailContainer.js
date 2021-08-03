@@ -51,6 +51,7 @@ export default function ItemDetailContainer() {
                 marca={item.marca}
                 importante={item.importante}
                 category={item.category}
+                stock={item.stock}
               ></ItemDetail>
             );
           })

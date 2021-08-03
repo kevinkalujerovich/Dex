@@ -82,6 +82,7 @@ export default function ItemDetail({
   importante,
   garantia,
   category,
+  stock,
 }) {
   const classes = useStyles();
   const [items, setItems] = useState([]);
@@ -112,7 +113,6 @@ export default function ItemDetail({
     cart.addItem({ item: array, qy: value }, valorDescuento);
   };
   const onAddFavorite = () => {
-    console.log(array);
     favorite.addItem(array);
   };
   return (
@@ -130,7 +130,7 @@ export default function ItemDetail({
               Item No. {id}
             </Typography>
             <Typography variant="subtitle2" className={classes.parrafoItem}>
-              Stock {id}
+              Stock {stock}
             </Typography>
             <Typography variant="h1" gutterBottom className={classes.title}>
               ${precio}
@@ -143,7 +143,7 @@ export default function ItemDetail({
               </NavLink>
             ) : (
               <ItemCount
-                stock={10}
+                stock={stock}
                 initial={1}
                 funcion={onAdd}
                 funcionFavorite={onAddFavorite}
