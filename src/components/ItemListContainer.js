@@ -84,6 +84,7 @@ export default function ItemListContainer() {
             setLoading(false);
             setMensaje(false);
             setValueSelect("");
+            setAuxRelevantes(null);
           })
       : itemsCollection
           .where("new", "==", true)
